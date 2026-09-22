@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مجتمع تفاعل</title>
+  <title>منصة مجتمع تفاعل</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -449,8 +449,8 @@
 
     </section>
 
-    <!-- قسم المؤسسين: 3 في صف واحد بالجوال وسطح المكتب مع رفع كارد علي أعلى قليلاً من أحمد ومحمد -->
-    <section id="founders" class="py-12 px-2 sm:px-8 max-w-5xl mx-auto scroll-mt-24">
+    <!-- قسم المؤسسين -->
+    <section id="founders" class="py-12 px-5 sm:px-8 max-w-5xl mx-auto scroll-mt-24">
       
       <div class="text-center max-w-xl mx-auto mb-10">
         <h2 class="text-2xl sm:text-3xl font-bold font-display text-brand-navy">
@@ -458,79 +458,118 @@
         </h2>
       </div>
 
-      <!-- شبكة من 3 أعمدة في الجوال والويب على حد سواء -->
-      <div class="grid grid-cols-3 gap-2 sm:gap-5 items-end pt-4 sm:pt-6">
+      <!-- شبكة المؤسسين: عمودية في الجوال، و 3 أعمدة في سطح المكتب -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 items-end pt-2 md:pt-6">
         
-        <!-- بطاقة 1: أحمد الزهراني (نائب الرئيس) -->
-        <div class="solid-card rounded-xl sm:rounded-2xl p-2.5 sm:p-6 text-center flex flex-col items-center justify-between border-t-4 border-t-brand-navy h-full">
-          <div class="flex flex-col items-center w-full">
-            <div class="relative w-16 h-16 sm:w-24 sm:h-24 rounded-xl sm:rounded-2xl overflow-hidden border-2 border-slate-200 shadow-xs mb-2 sm:mb-3.5 bg-slate-100 flex items-center justify-center group shrink-0">
-              <img 
-                src="pics/ahmed.jpg" 
-                alt="أحمد الزهراني" 
-                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
-              />
-              <div class="hidden w-full h-full flex flex-col items-center justify-center bg-slate-100 text-brand-navy font-bold font-display text-xs sm:text-base">
-                <span>أ.ز</span>
-              </div>
-            </div>
-            <h3 class="text-xs sm:text-base font-bold font-display text-brand-navy">أحمد الزهراني</h3>
-            <span class="text-[9px] sm:text-[11px] font-semibold text-brand-navy bg-slate-100 px-1.5 sm:px-2.5 py-0.5 rounded border border-slate-200 mt-1 mb-2">
-              نائب الرئيس
-            </span>
-          </div>
-          <p class="text-ink-600 text-[10px] sm:text-xs leading-tight sm:leading-relaxed">
-            متخصص في تفاعل الإنسان مع الحاسب، مهتم بدراسة سلوكيات المستخدمين
-          </p>
-        </div>
-
-        <!-- بطاقة 2: علي طيب (الرئيس) - نفس مقاس الصورة ومرتفع قليلاً -->
-        <div class="solid-card rounded-xl sm:rounded-2xl p-2.5 sm:p-6 text-center flex flex-col items-center justify-between border-t-4 border-t-brand-green shadow-md sm:shadow-lg -translate-y-3 sm:-translate-y-4 bg-white ring-1 ring-brand-green/20 h-full relative z-20">
-          <div class="flex flex-col items-center w-full">
-            <div class="relative w-16 h-16 sm:w-24 sm:h-24 rounded-xl sm:rounded-2xl overflow-hidden border-2 border-brand-green shadow-xs mb-2 sm:mb-3.5 bg-brand-green-subtle flex items-center justify-center group shrink-0">
+        <!-- بطاقة علي طيب (الرئيس): الأول في الجوال، والأوسط المرتفع في سطح المكتب -->
+        <div class="solid-card rounded-2xl p-4 sm:p-5 md:p-6 flex flex-row md:flex-col items-start md:items-center justify-between border-t-4 border-t-brand-green shadow-sm md:shadow-lg bg-white ring-1 ring-brand-green/20 md:-translate-y-4 h-full relative z-20 order-1 md:order-2 gap-4 md:gap-0">
+          <!-- جهة اليمين في الجوال (أعلى الكارد في اللابتوب): الصورة وتحتها المنصب -->
+          <div class="flex flex-col items-center shrink-0 w-24 sm:w-28 md:w-full text-center">
+            <div class="relative w-20 h-20 md:w-24 md:h-24 rounded-xl md:rounded-2xl overflow-hidden border-2 border-brand-green shadow-xs bg-brand-green-subtle flex items-center justify-center group shrink-0">
               <img 
                 src="pics/ali.png" 
                 alt="علي طيب" 
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
               />
-              <div class="hidden w-full h-full flex flex-col items-center justify-center bg-brand-green-subtle text-brand-green font-bold font-display text-xs sm:text-base">
+              <div class="hidden w-full h-full flex flex-col items-center justify-center bg-brand-green-subtle text-brand-green font-bold font-display text-xs md:text-base">
                 <span>ع.ط</span>
               </div>
             </div>
-            <h3 class="text-xs sm:text-base font-bold font-display text-brand-navy">علي طيب</h3>
-            <span class="text-[9px] sm:text-[11px] font-semibold text-brand-green bg-emerald-50 px-1.5 sm:px-2.5 py-0.5 rounded border border-emerald-200 mt-1 mb-2">
+            
+            <!-- ليبل بنفسجي مميز تحت الصورة مباشرة في الجوال -->
+            <span class="md:hidden text-[10px] font-semibold text-purple-700 bg-purple-50 px-2 py-0.5 rounded border border-purple-200 mt-2 text-center w-full">
               رئيس المبادرة
             </span>
           </div>
-          <p class="text-ink-600 text-[10px] sm:text-xs leading-tight sm:leading-relaxed">
-            متخصص في تفاعل الإنسان مع الحاسب وتصميم تجارب المستخدم وسهولة الوصول
-          </p>
+
+          <!-- جهة اليسار في الجوال: الاسم والنبذة (وفي اللابتوب: الاسم، الليبل، ثم النبذة) -->
+          <div class="flex-1 min-w-0 md:w-full flex flex-col items-start md:items-center text-right md:text-center pt-0.5 md:pt-3">
+            <h3 class="text-sm md:text-base font-bold font-display text-brand-navy">علي طيب</h3>
+            
+            <!-- ليبل بنفسجي يظهر فقط في شاشات اللابتوب تحت الاسم -->
+            <span class="hidden md:inline-block text-[11px] font-semibold text-purple-700 bg-purple-50 px-2.5 py-0.5 rounded border border-purple-200 mt-1 mb-2">
+              رئيس المبادرة
+            </span>
+
+            <p class="text-ink-600 text-xs leading-relaxed mt-1.5 md:mt-0">
+              متخصص في تفاعل الإنسان مع الحاسب وتصميم تجارب المستخدم وسهولة الوصول
+            </p>
+          </div>
         </div>
 
-        <!-- بطاقة 3: محمد جبلي (المستشار) -->
-        <div class="solid-card rounded-xl sm:rounded-2xl p-2.5 sm:p-6 text-center flex flex-col items-center justify-between border-t-4 border-t-emerald-700 h-full">
-          <div class="flex flex-col items-center w-full">
-            <div class="relative w-16 h-16 sm:w-24 sm:h-24 rounded-xl sm:rounded-2xl overflow-hidden border-2 border-brand-green-border shadow-xs mb-2 sm:mb-3.5 bg-brand-green-subtle flex items-center justify-center group shrink-0">
+        <!-- بطاقة أحمد الزهراني (نائب الرئيس): الثاني في الجوال، والأول في اليمين بسطح المكتب -->
+        <div class="solid-card rounded-2xl p-4 sm:p-5 md:p-6 flex flex-row md:flex-col items-start md:items-center justify-between border-t-4 border-t-brand-green h-full order-2 md:order-1 gap-4 md:gap-0">
+          <!-- جهة اليمين في الجوال: الصورة وتحتها المنصب -->
+          <div class="flex flex-col items-center shrink-0 w-24 sm:w-28 md:w-full text-center">
+            <div class="relative w-20 h-20 md:w-24 md:h-24 rounded-xl md:rounded-2xl overflow-hidden border-2 border-slate-200 shadow-xs bg-slate-100 flex items-center justify-center group shrink-0">
+              <img 
+                src="pics/ahmed.jpg" 
+                alt="أحمد الزهراني" 
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+              />
+              <div class="hidden w-full h-full flex flex-col items-center justify-center bg-slate-100 text-brand-navy font-bold font-display text-xs md:text-base">
+                <span>أ.ز</span>
+              </div>
+            </div>
+
+            <!-- ليبل أخضر تحت الصورة مباشرة في الجوال -->
+            <span class="md:hidden text-[10px] font-semibold text-brand-green bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 mt-2 text-center w-full">
+              نائب الرئيس
+            </span>
+          </div>
+
+          <!-- جهة اليسار في الجوال: الاسم والنبذة (وفي اللابتوب: الاسم، الليبل، ثم النبذة) -->
+          <div class="flex-1 min-w-0 md:w-full flex flex-col items-start md:items-center text-right md:text-center pt-0.5 md:pt-3">
+            <h3 class="text-sm md:text-base font-bold font-display text-brand-navy">أحمد الزهراني</h3>
+            
+            <!-- ليبل أخضر يظهر فقط في شاشات اللابتوب تحت الاسم -->
+            <span class="hidden md:inline-block text-[11px] font-semibold text-brand-green bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200 mt-1 mb-2">
+              نائب الرئيس
+            </span>
+
+            <p class="text-ink-600 text-xs leading-relaxed mt-1.5 md:mt-0">
+              متخصص في تفاعل الإنسان مع الحاسب، مهتم بدراسة سلوكيات المستخدمين
+            </p>
+          </div>
+        </div>
+
+        <!-- بطاقة محمد جبلي (المستشار): الثالث في الجوال وفي سطح المكتب -->
+        <div class="solid-card rounded-2xl p-4 sm:p-5 md:p-6 flex flex-row md:flex-col items-start md:items-center justify-between border-t-4 border-t-brand-green h-full order-3 md:order-3 gap-4 md:gap-0">
+          <!-- جهة اليمين في الجوال: الصورة وتحتها المنصب -->
+          <div class="flex flex-col items-center shrink-0 w-24 sm:w-28 md:w-full text-center">
+            <div class="relative w-20 h-20 md:w-24 md:h-24 rounded-xl md:rounded-2xl overflow-hidden border-2 border-brand-green-border shadow-xs bg-brand-green-subtle flex items-center justify-center group shrink-0">
               <img 
                 src="pics/mohammed.jpg" 
                 alt="محمد جبلي" 
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
               />
-              <div class="hidden w-full h-full flex flex-col items-center justify-center bg-brand-green-subtle text-brand-green font-bold font-display text-xs sm:text-base">
+              <div class="hidden w-full h-full flex flex-col items-center justify-center bg-brand-green-subtle text-brand-green font-bold font-display text-xs md:text-base">
                 <span>م.ج</span>
               </div>
             </div>
-            <h3 class="text-xs sm:text-base font-bold font-display text-brand-navy">محمد جبلي</h3>
-            <span class="text-[9px] sm:text-[11px] font-semibold text-brand-green bg-emerald-50 px-1.5 sm:px-2.5 py-0.5 rounded border border-emerald-200 mt-1 mb-2">
+
+            <!-- ليبل أخضر تحت الصورة مباشرة في الجوال -->
+            <span class="md:hidden text-[10px] font-semibold text-brand-green bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 mt-2 text-center w-full">
               مستشار المبادرة
             </span>
           </div>
-          <p class="text-ink-600 text-[10px] sm:text-xs leading-tight sm:leading-relaxed">
-            طالب دكتوراه في علوم الحاسب ومحاضر بجامعة أم القرى، مهتم بتفاعل الإنسان والحاسب
-          </p>
+
+          <!-- جهة اليسار في الجوال: الاسم والنبذة (وفي اللابتوب: الاسم، الليبل، ثم النبذة) -->
+          <div class="flex-1 min-w-0 md:w-full flex flex-col items-start md:items-center text-right md:text-center pt-0.5 md:pt-3">
+            <h3 class="text-sm md:text-base font-bold font-display text-brand-navy">محمد جبلي</h3>
+            
+            <!-- ليبل أخضر يظهر فقط في شاشات اللابتوب تحت الاسم -->
+            <span class="hidden md:inline-block text-[11px] font-semibold text-brand-green bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200 mt-1 mb-2">
+              مستشار المبادرة
+            </span>
+
+            <p class="text-ink-600 text-xs leading-relaxed mt-1.5 md:mt-0">
+              طالب دكتوراه في علوم الحاسب ومحاضر بجامعة أم القرى، مهتم بتفاعل الإنسان والحاسب
+            </p>
+          </div>
         </div>
 
       </div>
