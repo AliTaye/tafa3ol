@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>منصة مجتمع تفاعل</title>
+  <title>مجتمع تفاعل</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -171,7 +171,7 @@
 
   <main class="relative z-10 pt-28 pb-16">
 
-    <!-- القسم الترحيبي (Hero) بدون أي ليبل صناعي -->
+    <!-- القسم الترحيبي (Hero) -->
     <section class="py-12 sm:py-16 px-5 sm:px-8 max-w-4xl mx-auto text-center">
       <h1 class="text-3xl sm:text-5xl font-bold font-display text-brand-navy leading-[1.3] tracking-tight mb-5">
         مجتمع تفاعل
@@ -205,7 +205,7 @@
           </div>
         </div>
 
-        <!-- زر الانضمام لمجموعة الواتساب: النص أولاً ثم الأيقونة -->
+        <!-- زر الانضمام لمجموعة الواتساب -->
         <a href="https://forms.gle/sQmWoPeUZXBgLm9v8" target="_blank" rel="noopener noreferrer" class="google-form-link relative z-10 w-full md:w-auto px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white font-semibold text-xs sm:text-sm shrink-0 transition-all flex items-center justify-center gap-2.5 shadow-sm cursor-pointer">
           <span>سجل وانضم لنا</span>
           <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
@@ -292,7 +292,7 @@
       </div>
     </section>
 
-    <!-- قسم اللقاءات المخصص (اللقاءات السابقة والقادمة) -->
+    <!-- قسم اللقاءات المخصص (اللقاءات السابقة والقادمة مع التواريخ) -->
     <section id="meetups" class="py-12 px-5 sm:px-8 max-w-5xl mx-auto scroll-mt-24">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-5">
@@ -317,7 +317,7 @@
       <!-- شبكة بطاقات اللقاءات -->
       <div id="meetupsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-5">
         
-        <!-- بطاقة لقاء قادم: أساليب الإقناع في التصميم -->
+        <!-- بطاقة لقاء قادم: أساليب الإقناع في التصميم (الإثنين 28 / 9) -->
         <div class="meetup-card solid-card rounded-2xl overflow-hidden flex flex-col justify-between border-t-2 border-t-emerald-600 group" data-type="upcoming">
           <div>
             <!-- غلاف تعريفي مع طبقة تدرج لوني -->
@@ -330,10 +330,11 @@
               />
               <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent"></div>
               
-              <!-- شارات الغلاف العلوية -->
+              <!-- شارات الغلاف العلوية مع إضافة التاريخ: الإثنين 28 / 9 -->
               <div class="absolute top-3.5 inset-x-4 flex items-center justify-between gap-2 text-xs">
-                <span class="px-2.5 py-1 rounded-lg bg-emerald-500/90 text-white backdrop-blur-md font-semibold text-[11px] shadow-sm">
-                  متاح للتسجيل
+                <span class="px-2.5 py-1 rounded-lg bg-emerald-500/90 text-white backdrop-blur-md font-semibold text-[11px] shadow-sm flex items-center gap-1">
+                  <span>📅</span>
+                  <span>الإثنين 28 / 9</span>
                 </span>
                 <span class="px-2.5 py-1 rounded-lg bg-white/20 text-white backdrop-blur-md font-medium text-[11px]">
                   حضور مجاني • مقاعد محدودة
@@ -363,7 +364,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
               </svg>
-              <span>مكة المكرمة • سكاي أوفيس</span>
+              <span>مكة (الحمراء) • سكاي أوفيس</span>
             </div>
             <div class="flex items-center gap-3">
               <button onclick="addToCalendar('لقاء تفاعل #2: أساليب الإقناع في التصميم', 'مكة المكرمة - سكاي أوفيس')" title="إضافة للتقويم" class="text-ink-400 hover:text-brand-green transition-colors text-xs flex items-center gap-1">
@@ -381,7 +382,7 @@
           </div>
         </div>
 
-        <!-- بطاقة لقاء سابق: AI & IA برعاية زد -->
+        <!-- بطاقة لقاء سابق: AI & IA برعاية زد (الأحد 20 / 9) -->
         <div class="meetup-card solid-card rounded-2xl overflow-hidden flex flex-col justify-between bg-slate-50/70 opacity-95 group" data-type="past">
           <div>
             <!-- غلاف تعريفي مع هوية اللقاء والتدرج -->
@@ -394,10 +395,11 @@
               />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/50 to-transparent"></div>
 
-              <!-- شارات الغلاف العلوية -->
+              <!-- شارات الغلاف العلوية مع إضافة تاريخ اللقاء السابق: الأحد 20 / 9 -->
               <div class="absolute top-3.5 inset-x-4 flex items-center justify-between gap-2 text-xs">
-                <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-slate-300 backdrop-blur-md font-medium text-[11px] border border-slate-700/60">
-                  لقاء سابق
+                <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-slate-200 backdrop-blur-md font-medium text-[11px] border border-slate-700/60 flex items-center gap-1">
+                  <span>📅</span>
+                  <span>الأحد 20 / 9</span>
                 </span>
                 <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-emerald-400 backdrop-blur-md font-medium text-[11px] border border-slate-700/60 flex items-center gap-1">
                   <span>برعاية زد (Zid)</span>
@@ -428,7 +430,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
               </svg>
-              <span>مكة المكرمة • سكاي أوفيس</span>
+              <span>مكة (الحمراء) • سكاي أوفيس</span>
             </div>
 
             <span class="text-brand-green font-semibold text-[11px] flex items-center gap-1">
@@ -447,8 +449,8 @@
 
     </section>
 
-    <!-- قسم المؤسسين -->
-    <section id="founders" class="py-12 px-5 sm:px-8 max-w-5xl mx-auto scroll-mt-24">
+    <!-- قسم المؤسسين: 3 في صف واحد بالجوال وسطح المكتب مع رفع كارد علي أعلى قليلاً من أحمد ومحمد -->
+    <section id="founders" class="py-12 px-2 sm:px-8 max-w-5xl mx-auto scroll-mt-24">
       
       <div class="text-center max-w-xl mx-auto mb-10">
         <h2 class="text-2xl sm:text-3xl font-bold font-display text-brand-navy">
@@ -456,74 +458,78 @@
         </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <!-- شبكة من 3 أعمدة في الجوال والويب على حد سواء -->
+      <div class="grid grid-cols-3 gap-2 sm:gap-5 items-end pt-4 sm:pt-6">
         
-        <!-- بطاقة أحمد الزهراني (نائب الرئيس) -->
-        <div class="solid-card rounded-2xl p-6 text-center flex flex-col items-center border-t-4 border-t-brand-navy">
-          <div class="relative w-22 h-22 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-xs mb-3.5 bg-slate-100 flex items-center justify-center group">
-            <img 
-              src="pics/ahmed.jpg" 
-              alt="أحمد الزهراني" 
-              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
-            />
-            <div class="hidden w-full h-full flex flex-col items-center justify-center bg-slate-100 text-brand-navy font-bold font-display text-base">
-              <span>أ.ز</span>
-              <span class="text-[10px] font-normal text-ink-400 mt-0.5">صورة شخصية</span>
+        <!-- بطاقة 1: أحمد الزهراني (نائب الرئيس) -->
+        <div class="solid-card rounded-xl sm:rounded-2xl p-2.5 sm:p-6 text-center flex flex-col items-center justify-between border-t-4 border-t-brand-navy h-full">
+          <div class="flex flex-col items-center w-full">
+            <div class="relative w-16 h-16 sm:w-24 sm:h-24 rounded-xl sm:rounded-2xl overflow-hidden border-2 border-slate-200 shadow-xs mb-2 sm:mb-3.5 bg-slate-100 flex items-center justify-center group shrink-0">
+              <img 
+                src="pics/ahmed.jpg" 
+                alt="أحمد الزهراني" 
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+              />
+              <div class="hidden w-full h-full flex flex-col items-center justify-center bg-slate-100 text-brand-navy font-bold font-display text-xs sm:text-base">
+                <span>أ.ز</span>
+              </div>
             </div>
+            <h3 class="text-xs sm:text-base font-bold font-display text-brand-navy">أحمد الزهراني</h3>
+            <span class="text-[9px] sm:text-[11px] font-semibold text-brand-navy bg-slate-100 px-1.5 sm:px-2.5 py-0.5 rounded border border-slate-200 mt-1 mb-2">
+              نائب الرئيس
+            </span>
           </div>
-          <h3 class="text-base font-bold font-display text-brand-navy">أحمد الزهراني</h3>
-          <span class="text-[11px] font-semibold text-brand-navy bg-slate-100 px-2.5 py-0.5 rounded border border-slate-200 mt-1 mb-2.5">
-            نائب رئيس مبادرة تفاعل
-          </span>
-          <p class="text-ink-600 text-xs leading-relaxed">
-            متخصص في تفاعل الإنسان مع الحاسب، مهتم بدراسة سلوكيات المستخدمين، واختبارات قابلية الاستخدام
+          <p class="text-ink-600 text-[10px] sm:text-xs leading-tight sm:leading-relaxed">
+            متخصص في تفاعل الإنسان مع الحاسب، مهتم بدراسة سلوكيات المستخدمين
           </p>
         </div>
 
-        <!-- بطاقة علي طيب (الرئيس - في المنتصف) -->
-        <div class="solid-card rounded-2xl p-6 text-center flex flex-col items-center border-t-4 border-t-brand-green">
-          <div class="relative w-22 h-22 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-brand-green-border shadow-xs mb-3.5 bg-brand-green-subtle flex items-center justify-center group">
-            <img 
-              src="pics/ali.png" 
-              alt="علي طيب" 
-              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
-            />
-            <div class="hidden w-full h-full flex flex-col items-center justify-center bg-brand-green-subtle text-brand-green font-bold font-display text-base">
-              <span>ع.ط</span>
-              <span class="text-[10px] font-normal text-emerald-600/70 mt-0.5">صورة شخصية</span>
+        <!-- بطاقة 2: علي طيب (الرئيس) - نفس مقاس الصورة ومرتفع قليلاً -->
+        <div class="solid-card rounded-xl sm:rounded-2xl p-2.5 sm:p-6 text-center flex flex-col items-center justify-between border-t-4 border-t-brand-green shadow-md sm:shadow-lg -translate-y-3 sm:-translate-y-4 bg-white ring-1 ring-brand-green/20 h-full relative z-20">
+          <div class="flex flex-col items-center w-full">
+            <div class="relative w-16 h-16 sm:w-24 sm:h-24 rounded-xl sm:rounded-2xl overflow-hidden border-2 border-brand-green shadow-xs mb-2 sm:mb-3.5 bg-brand-green-subtle flex items-center justify-center group shrink-0">
+              <img 
+                src="pics/ali.png" 
+                alt="علي طيب" 
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+              />
+              <div class="hidden w-full h-full flex flex-col items-center justify-center bg-brand-green-subtle text-brand-green font-bold font-display text-xs sm:text-base">
+                <span>ع.ط</span>
+              </div>
             </div>
+            <h3 class="text-xs sm:text-base font-bold font-display text-brand-navy">علي طيب</h3>
+            <span class="text-[9px] sm:text-[11px] font-semibold text-brand-green bg-emerald-50 px-1.5 sm:px-2.5 py-0.5 rounded border border-emerald-200 mt-1 mb-2">
+              رئيس المبادرة
+            </span>
           </div>
-          <h3 class="text-base font-bold font-display text-brand-navy">علي طيب</h3>
-          <span class="text-[11px] font-semibold text-brand-green bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200 mt-1 mb-2.5">
-            رئيس مبادرة تفاعل
-          </span>
-          <p class="text-ink-600 text-xs leading-relaxed">
-            متخصص في تفاعل الإنسان مع الحاسب، مهتم بتصميم تجربة المستخدم ومواءمة أهداف الأعمال مع سهولة الوصول
+          <p class="text-ink-600 text-[10px] sm:text-xs leading-tight sm:leading-relaxed">
+            متخصص في تفاعل الإنسان مع الحاسب وتصميم تجارب المستخدم وسهولة الوصول
           </p>
         </div>
 
-        <!-- بطاقة محمد جبلي (المستشار) -->
-        <div class="solid-card rounded-2xl p-6 text-center flex flex-col items-center border-t-4 border-t-emerald-700">
-          <div class="relative w-22 h-22 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-brand-green-border shadow-xs mb-3.5 bg-brand-green-subtle flex items-center justify-center group">
-            <img 
-              src="pics/mohammed.jpg" 
-              alt="محمد جبلي" 
-              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
-            />
-            <div class="hidden w-full h-full flex flex-col items-center justify-center bg-brand-green-subtle text-brand-green font-bold font-display text-base">
-              <span>م.ج</span>
-              <span class="text-[10px] font-normal text-emerald-600/70 mt-0.5">صورة شخصية</span>
+        <!-- بطاقة 3: محمد جبلي (المستشار) -->
+        <div class="solid-card rounded-xl sm:rounded-2xl p-2.5 sm:p-6 text-center flex flex-col items-center justify-between border-t-4 border-t-emerald-700 h-full">
+          <div class="flex flex-col items-center w-full">
+            <div class="relative w-16 h-16 sm:w-24 sm:h-24 rounded-xl sm:rounded-2xl overflow-hidden border-2 border-brand-green-border shadow-xs mb-2 sm:mb-3.5 bg-brand-green-subtle flex items-center justify-center group shrink-0">
+              <img 
+                src="pics/mohammed.jpg" 
+                alt="محمد جبلي" 
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+              />
+              <div class="hidden w-full h-full flex flex-col items-center justify-center bg-brand-green-subtle text-brand-green font-bold font-display text-xs sm:text-base">
+                <span>م.ج</span>
+              </div>
             </div>
+            <h3 class="text-xs sm:text-base font-bold font-display text-brand-navy">محمد جبلي</h3>
+            <span class="text-[9px] sm:text-[11px] font-semibold text-brand-green bg-emerald-50 px-1.5 sm:px-2.5 py-0.5 rounded border border-emerald-200 mt-1 mb-2">
+              مستشار المبادرة
+            </span>
           </div>
-          <h3 class="text-base font-bold font-display text-brand-navy">محمد جبلي</h3>
-          <span class="text-[11px] font-semibold text-brand-green bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200 mt-1 mb-2.5">
-            مستشار مبادرة تفاعل
-          </span>
-          <p class="text-ink-600 text-xs leading-relaxed">
-            طالب دكتوراه في علوم الحاسب، محاضر في جامعة أم القرى، مهتم في تفاعل الإنسان مع الحاسب
+          <p class="text-ink-600 text-[10px] sm:text-xs leading-tight sm:leading-relaxed">
+            طالب دكتوراه في علوم الحاسب ومحاضر بجامعة أم القرى، مهتم بتفاعل الإنسان والحاسب
           </p>
         </div>
 
@@ -548,7 +554,7 @@
           </div>
         </div>
 
-        <!-- سؤال 2 المعدل -->
+        <!-- سؤال 2 -->
         <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
           <button onclick="toggleFaq(this)" class="w-full p-4 text-right flex items-center justify-between text-xs sm:text-sm font-bold text-brand-navy hover:bg-slate-50 transition-colors">
             <span>هل يجب أن أكون مصمم واجهات وتجربة مستخدم للانضمام؟</span>
@@ -585,7 +591,7 @@
             مهما كان مجالك، راح نسعد بمعرفتك بيننا لأن هدفنا نبني شبكة مهنية مهتمة بتجربة المستخدم
           </p>
 
-          <!-- زر الدعوة مع قراءة طبيعية: الكلمة أولاً ثم الإيموجي من اليمين لليسار -->
+          <!-- زر الدعوة -->
           <a href="https://forms.gle/sQmWoPeUZXBgLm9v8" target="_blank" rel="noopener noreferrer" class="google-form-link inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white font-semibold text-xs sm:text-sm transition-all shadow-md cursor-pointer">
             <span>حيّاك معنا</span>
             <span class="text-sm select-none">🤝</span>
@@ -679,21 +685,14 @@
       }
     }
 
-    // إضافة اللقاء إلى Google Calendar بتاريخ الإثنين القادم تلقائياً
+    // إضافة اللقاء إلى Google Calendar بتاريخ الإثنين 28 سبتمبر (28-09)
     function addToCalendar(title, location) {
       const now = new Date();
-      const dayOfWeek = now.getDay(); // 0: الأحد، 1: الإثنين...
-      let daysUntilMonday = (1 + 7 - dayOfWeek) % 7;
-      if (daysUntilMonday === 0) daysUntilMonday = 7; // إذا كان اليوم هو الإثنين، يختار الإثنين القادم
+      const year = now.getFullYear();
       
-      const nextMon = new Date(now.getFullYear(), now.getMonth(), now.getDate() + daysUntilMonday);
-      const year = nextMon.getFullYear();
-      const month = String(nextMon.getMonth() + 1).padStart(2, '0');
-      const day = String(nextMon.getDate()).padStart(2, '0');
-      
-      // التوقيت: من 7:30 مساءً حتى 9:30 مساءً بتوقيت مكة
-      const startStr = `${year}${month}${day}T193000`;
-      const endStr = `${year}${month}${day}T213000`;
+      // موعد اللقاء: 28 سبتمبر
+      const startStr = `${year}0928T193000`;
+      const endStr = `${year}0928T213000`;
 
       const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startStr}/${endStr}&details=${encodeURIComponent('لقاء مجتمع تفاعل لتجربة المستخدم بمكة المكرمة')}&location=${encodeURIComponent(location)}`;
       window.open(gcalUrl, '_blank');
