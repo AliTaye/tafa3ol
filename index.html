@@ -104,12 +104,37 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #085A36;
     }
+
+    @media (max-width: 767.98px) {
+      header.mobile-nav-hidden {
+        opacity: 0 !important;
+        transform: translateY(-115%) scale(0.9) !important;
+        pointer-events: none !important;
+        filter: blur(10px) !important;
+        border-radius: 0 0 2rem 2rem;
+      }
+      header.mobile-nav-visible {
+        opacity: 1 !important;
+        transform: translateY(0) scale(1) !important;
+        pointer-events: auto !important;
+        filter: blur(0px) !important;
+        border-radius: 0 0 0 0;
+      }
+      header {
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                    opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                    filter 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                    border-radius 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        transform-origin: top center;
+        will-change: transform, opacity, filter;
+      }
+    }
   </style>
 </head>
 <body class="app-canvas selection:bg-brand-green selection:text-white min-h-screen flex flex-col justify-between">
 
   <!-- شريط التنقل العلوي -->
-  <header class="fixed top-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all duration-200">
+  <header class="fixed top-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all duration-200 mobile-nav-hidden">
     <div class="max-w-5xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
       
       <!-- شعار تفاعل -->
@@ -119,7 +144,7 @@
             src="pics/tafa3ol.png" 
             alt="شعار تفاعل" 
             class="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
-            onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+            onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');"
           />
           <div class="hidden flex items-center justify-center font-bold text-brand-green font-display text-xl select-none">
             ت
@@ -175,7 +200,15 @@
     <section class="py-12 sm:py-16 px-5 sm:px-8 max-w-4xl mx-auto text-center">
       <!-- شعار تفاعل في منتصف القسم الترحيبي -->
       <div class="flex justify-center items-center w-40 h-40 mb-5 sm:mb-6 mx-auto"> 
-        <img src="pics/tafa3ol.nobg.png" alt="شعار مجتمع تفاعل" class="w-full h-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');" /> 
+        <img 
+          src="pics/tafa3ol.nobg.png" 
+          alt="شعار مجتمع تفاعل" 
+          class="w-full h-full object-contain" 
+          onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');" 
+        /> 
+        <div class="hidden w-28 h-28 rounded-3xl bg-brand-green-subtle border border-brand-green-border flex items-center justify-center font-bold text-brand-green font-display text-3xl select-none shadow-xs">
+          تفاعل
+        </div>
       </div>
 
 
@@ -476,7 +509,7 @@
                 src="pics/ali.png" 
                 alt="علي طيب" 
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');"
               />
               <div class="hidden w-full h-full flex flex-col items-center justify-center bg-brand-green-subtle text-brand-green font-bold font-display text-xs md:text-base">
                 <span>ع.ط</span>
@@ -513,7 +546,7 @@
                 src="pics/ahmed.jpg" 
                 alt="أحمد الزهراني" 
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');"
               />
               <div class="hidden w-full h-full flex flex-col items-center justify-center bg-slate-100 text-brand-navy font-bold font-display text-xs md:text-base">
                 <span>أ.ز</span>
@@ -550,7 +583,7 @@
                 src="pics/mohammed.jpg" 
                 alt="محمد جبلي" 
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');"
               />
               <div class="hidden w-full h-full flex flex-col items-center justify-center bg-brand-green-subtle text-brand-green font-bold font-display text-xs md:text-base">
                 <span>م.ج</span>
@@ -685,6 +718,28 @@
     if (mobileMenuBtn) {
       mobileMenuBtn.addEventListener('click', toggleMobileMenu);
     }
+
+    // إخفاء وإظهار شريط التنقل في الجوال بتأثير مورف عند التمرير
+    const navHeader = document.querySelector('header');
+    function handleMobileNavMorph() {
+      if (window.innerWidth < 768) {
+        // عند النزول أكثر من 50 بكسل يظهر الشريط بتأثير مورف
+        if (window.scrollY > 50) {
+          navHeader.classList.remove('mobile-nav-hidden');
+          navHeader.classList.add('mobile-nav-visible');
+        } else {
+          // في أعلى الصفحة يكون مخفياً
+          navHeader.classList.remove('mobile-nav-visible');
+          navHeader.classList.add('mobile-nav-hidden');
+        }
+      } else {
+        // على شاشات سطح المكتب واللابتوب يظل ظاهراً بشكل طبيعي دائماً
+        navHeader.classList.remove('mobile-nav-hidden', 'mobile-nav-visible');
+      }
+    }
+    window.addEventListener('scroll', handleMobileNavMorph, { passive: true });
+    window.addEventListener('resize', handleMobileNavMorph);
+    handleMobileNavMorph();
 
     // تصفية اللقاءات
     function filterMeetups(type) {
