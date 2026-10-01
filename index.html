@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>مجتمع تفاعل</title>
   
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- خطوط عربية متناسقة -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -58,6 +56,7 @@
   </script>
 
   <style>
+    /* Base typography and body colors */
     body {
       font-family: 'Readex Pro', sans-serif;
       background-color: #F8FAFC;
@@ -65,12 +64,14 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* Subtle dot grid canvas background */
     .app-canvas {
       background-image: radial-gradient(#CBD5E1 0.75px, transparent 0.75px);
       background-size: 24px 24px;
       background-color: #F8FAFC;
     }
 
+    /* Interactive card styling */
     .solid-card {
       background-color: #FFFFFF;
       border: 1px solid #E2E8F0;
@@ -83,13 +84,14 @@
       box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.06);
     }
 
+    /* Active filter tab appearance */
     .filter-btn.active {
       background-color: #0B1B33;
       color: #FFFFFF;
       box-shadow: 0 2px 6px rgba(11, 27, 51, 0.2);
     }
 
-    /* شريط التمرير */
+    /* Custom scrollbar styles */
     ::-webkit-scrollbar {
       width: 6px;
       height: 6px;
@@ -105,6 +107,7 @@
       background: #085A36;
     }
 
+    /* Mobile header animation states */
     @media (max-width: 767.98px) {
       header.mobile-nav-hidden {
         opacity: 0 !important;
@@ -133,18 +136,18 @@
 </head>
 <body class="app-canvas selection:bg-brand-green selection:text-white min-h-screen flex flex-col justify-between">
 
-  <!-- شريط التنقل العلوي -->
+  <!-- Top Navigation Header -->
   <header class="fixed top-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all duration-200 mobile-nav-hidden">
     <div class="max-w-5xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
       
-      <!-- شعار تفاعل -->
+      <!-- Brand Logo -->
       <a href="#" class="flex items-center gap-3 group" aria-label="الرئيسية - تفاعل">
         <div class="relative flex items-center justify-center w-11 h-11 rounded-2xl bg-white border border-slate-200 shadow-xs p-1.5 overflow-hidden transition-all duration-200 group-hover:border-brand-green/40">
           <img 
             src="pics/tafa3ol.png" 
             alt="شعار تفاعل" 
             class="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
-            onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');"
+            onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');" 
           />
           <div class="hidden flex items-center justify-center font-bold text-brand-green font-display text-xl select-none">
             ت
@@ -156,7 +159,7 @@
         </span>
       </a>
 
-      <!-- روابط التنقل لسطح المكتب -->
+      <!-- Desktop Navigation Links -->
       <nav class="hidden md:flex items-center gap-8 text-xs font-semibold text-ink-600">
         <a href="#about" class="hover:text-brand-green transition-colors py-1">عن المجتمع</a>
         <a href="#meetups" class="hover:text-brand-green transition-colors py-1">اللقاءات</a>
@@ -164,8 +167,8 @@
         <a href="#faq" class="hover:text-brand-green transition-colors py-1">الأسئلة الشائعة</a>
       </nav>
 
+      <!-- Desktop CTA & Social Actions -->
       <div class="hidden sm:flex items-center gap-3">
-        <!-- حساب تويتر/X للمبادرة -->
         <a href="https://x.com/tafa3ol_com" target="_blank" rel="noopener noreferrer" title="حساب تويتر تفاعل @tafa3ol_com" class="p-2.5 rounded-xl border border-slate-200 text-ink-700 hover:text-black hover:border-slate-400 hover:bg-slate-50 transition-all flex items-center justify-center">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
@@ -178,7 +181,7 @@
         </a>
       </div>
 
-      <!-- زر القائمة للأجهزة الذكية -->
+      <!-- Mobile Hamburger Button -->
       <button id="mobileMenuBtn" aria-label="فتح القائمة" aria-expanded="false" class="md:hidden p-2 rounded-xl text-ink-700 hover:bg-slate-100 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-green">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -186,7 +189,7 @@
       </button>
     </div>
 
-    <!-- قائمة الهواتف المحمولة المنسدلة -->
+    <!-- Mobile Drawer Menu -->
     <div id="mobileMenu" class="hidden md:hidden px-5 py-5 bg-white border-b border-slate-200 space-y-3 text-center text-xs shadow-lg transition-all">
       <a href="#about" class="block py-2 text-ink-700 font-medium hover:text-brand-green" onclick="toggleMobileMenu()">عن المجتمع</a>
       <a href="#meetups" class="block py-2 text-ink-700 font-medium hover:text-brand-green" onclick="toggleMobileMenu()">اللقاءات</a>
@@ -209,9 +212,8 @@
 
   <main class="relative z-10 pt-28 pb-16">
 
-    <!-- القسم الترحيبي (Hero) -->
+    <!-- Hero Introduction Section -->
     <section class="py-12 sm:py-16 px-5 sm:px-8 max-w-4xl mx-auto text-center">
-      <!-- شعار تفاعل في منتصف القسم الترحيبي -->
       <div class="flex justify-center items-center w-40 h-40 mb-5 sm:mb-6 mx-auto"> 
         <img 
           src="pics/tafa3ol.nobg.png" 
@@ -233,7 +235,7 @@
       </p>
     </section>
 
-    <!-- شريط مجتمع الواتساب الترويجي -->
+    <!-- WhatsApp Community Promotion Banner -->
     <section class="px-5 sm:px-8 max-w-4xl mx-auto mb-16">
       <div class="rounded-2xl p-6 sm:p-7 bg-brand-navy text-white border border-slate-800 shadow-elevated flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
         
@@ -256,7 +258,6 @@
           </div>
         </div>
 
-        <!-- زر الانضمام لمجموعة الواتساب -->
         <a href="https://forms.gle/sQmWoPeUZXBgLm9v8" target="_blank" rel="noopener noreferrer" class="google-form-link relative z-10 w-full md:w-auto px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white font-semibold text-xs sm:text-sm shrink-0 transition-all flex items-center justify-center gap-2.5 shadow-sm cursor-pointer">
           <span>سجل وانضم لنا</span>
           <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
@@ -267,7 +268,7 @@
       </div>
     </section>
 
-    <!-- الركائز والأهداف -->
+    <!-- Community Core Pillars -->
     <section id="about" class="py-12 px-5 sm:px-8 max-w-5xl mx-auto scroll-mt-24">
       <div class="text-center max-w-xl mx-auto mb-10">
         <h2 class="text-2xl sm:text-3xl font-bold font-display text-brand-navy">
@@ -277,7 +278,7 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
         
-        <!-- بطاقة 1: لقاءات دورية -->
+        <!-- Pillar 1: Recurring Meetups -->
         <div class="solid-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-brand-green">
           <div>
             <div class="flex items-center justify-between mb-4">
@@ -297,7 +298,7 @@
           </div>
         </div>
 
-        <!-- بطاقة 2: مجتمع حواري في واتساب -->
+        <!-- Pillar 2: WhatsApp Discussion Community -->
         <div class="solid-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-emerald-600">
           <div>
             <div class="flex items-center justify-between mb-4">
@@ -317,7 +318,7 @@
           </div>
         </div>
 
-        <!-- بطاقة 3: استشارات وتدقيق واجهات -->
+        <!-- Pillar 3: UX Audits & Consultations -->
         <div class="solid-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-slate-300 bg-slate-50/50">
           <div>
             <div class="flex items-center justify-between mb-4">
@@ -343,7 +344,7 @@
       </div>
     </section>
 
-    <!-- قسم اللقاءات المخصص (اللقاءات السابقة والقادمة مع التواريخ) -->
+    <!-- Community Meetups Section -->
     <section id="meetups" class="py-12 px-5 sm:px-8 max-w-5xl mx-auto scroll-mt-24">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-5">
@@ -351,48 +352,45 @@
           <h2 class="text-2xl sm:text-3xl font-bold font-display text-brand-navy">لقاءات المجتمع</h2>
         </div>
 
-        <!-- أزرار تصفية اللقاءات -->
+        <!-- Meetups Category Filters -->
         <div class="flex items-center p-1 bg-slate-200/80 rounded-xl border border-slate-200 self-start md:self-auto shadow-inner">
           <button onclick="filterMeetups('all')" id="btn-all" class="filter-btn active px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all">
-            الكل (<span id="count-all">2</span>)
+            الكل (<span id="count-all">0</span>)
           </button>
           <button onclick="filterMeetups('upcoming')" id="btn-upcoming" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-ink-600 hover:text-ink-900 transition-all">
-            القادمة (<span id="count-upcoming">1</span>)
+            القادمة (<span id="count-upcoming">0</span>)
           </button>
           <button onclick="filterMeetups('past')" id="btn-past" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-ink-600 hover:text-ink-900 transition-all">
-            السابقة (<span id="count-past">1</span>)
+            السابقة (<span id="count-past">0</span>)
           </button>
         </div>
       </div>
 
-      <!-- شبكة بطاقات اللقاءات -->
+      <!-- Meetup Cards Grid -->
       <div id="meetupsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-5">
         
-        <!-- بطاقة لقاء قادم: أساليب الإقناع في التصميم (الإثنين 28 / 9) -->
+        <!-- Meetup Card: Upcoming Session -->
         <div class="meetup-card solid-card rounded-2xl overflow-hidden flex flex-col justify-between border-t-2 border-t-emerald-600 group" data-type="upcoming">
           <div>
-            <!-- غلاف تعريفي مع طبقة تدرج لوني -->
             <div class="relative h-40 w-full overflow-hidden bg-gradient-to-br from-brand-navy to-slate-900">
               <img 
                 src="" 
                 alt="غلاف أساليب الإقناع في التصميم"
                 class="w-full h-full object-cover opacity-35 mix-blend-overlay transition-transform duration-500 group-hover:scale-105"
-                onerror="this.style.display='none';"
+                onerror="this.style.display='none';" 
               />
               <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent"></div>
               
-              <!-- شارات الغلاف العلوية مع إضافة التاريخ: الإثنين 28 / 9 -->
               <div class="absolute top-3.5 inset-x-4 flex items-center justify-between gap-2 text-xs">
                 <span class="px-2.5 py-1 rounded-lg bg-emerald-500/90 text-white backdrop-blur-md font-semibold text-[11px] shadow-sm flex items-center gap-1">
                   <span>📅</span>
-                  <span>الإثنين 28 / 9</span>
+                  <span>الإثنين 05 / 10</span>
                 </span>
                 <span class="px-2.5 py-1 rounded-lg bg-white/20 text-white backdrop-blur-md font-medium text-[11px]">
                   حضور مجاني • مقاعد محدودة
                 </span>
               </div>
 
-              <!-- عنوان بارز فوق الغلاف -->
               <div class="absolute bottom-3 inset-x-4">
                 <span class="text-[11px] font-semibold text-emerald-300">لقاء تفاعل #2</span>
                 <h3 class="text-base font-bold font-display text-white leading-snug">
@@ -401,7 +399,6 @@
               </div>
             </div>
 
-            <!-- تفاصيل المحتوى -->
             <div class="p-5">
               <p class="text-ink-600 text-xs sm:text-sm leading-relaxed mb-2">
                 جلسة متخصصة لاستكشاف علم النفس السلوكي ومبادئ التأثير والإقناع الإدراكي في بناء تجارب مستخدم تصنع قرارات رقمية سلسة
@@ -418,14 +415,7 @@
               <span>مكة (الحمراء) • سكاي أوفيس</span>
             </div>
             <div class="flex items-center gap-3">
-              <button onclick="addToCalendar('لقاء تفاعل #2: أساليب الإقناع في التصميم', 'مكة المكرمة - سكاي أوفيس')" title="إضافة للتقويم" class="text-ink-400 hover:text-brand-green transition-colors text-xs flex items-center gap-1">
-                <span>التقويم</span>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-              </button>
-              
-              <a href="https://forms.gle/sQmWoPeUZXBgLm9v8" target="_blank" rel="noopener noreferrer" class="google-form-link text-brand-green font-semibold hover:underline flex items-center gap-1 cursor-pointer">
+              <a href="https://maps.app.goo.gl/9rBQrixDHarcGvbp7?g_st=ic" target="_blank" rel="noopener noreferrer" class="google-form-link text-brand-green font-semibold hover:underline flex items-center gap-1 cursor-pointer">
                 <span>الموقع</span>
                 <span class="text-xs">📍</span>
               </a>
@@ -433,20 +423,18 @@
           </div>
         </div>
 
-        <!-- بطاقة لقاء سابق: AI & IA برعاية زد (الأحد 20 / 9) - قابلة للنقر لرؤية تغريدة التغطية -->
+        <!-- Meetup Card: Past Session -->
         <a href="https://x.com/tafa3ol_com/status/2102426083064975491?s=20" target="_blank" rel="noopener noreferrer" title="مشاهدة تغطية اللقاء على منصة X" class="meetup-card solid-card rounded-2xl overflow-hidden flex flex-col justify-between bg-slate-50/70 opacity-95 group hover:border-brand-green/60 transition-all cursor-pointer block text-inherit no-underline" data-type="past">
           <div>
-            <!-- غلاف تعريفي مع هوية اللقاء والتدرج -->
             <div class="relative h-40 w-full overflow-hidden bg-gradient-to-br from-slate-900 to-brand-navy">
               <img 
                 src="pics/tafa3ol-1st.jpeg" 
                 alt="غلاف AI & IA"
                 class="w-full h-full object-cover opacity-25 mix-blend-luminosity transition-transform duration-500 group-hover:scale-105"
-                onerror="this.style.display='none';"
+                onerror="this.style.display='none';" 
               />
               <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/50 to-transparent"></div>
 
-              <!-- شارات الغلاف العلوية مع إضافة تاريخ اللقاء السابق: الأحد 20 / 9 -->
               <div class="absolute top-3.5 inset-x-4 flex items-center justify-between gap-2 text-xs">
                 <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-slate-200 backdrop-blur-md font-medium text-[11px] border border-slate-700/60 flex items-center gap-1">
                   <span>📅</span>
@@ -458,7 +446,6 @@
                 </span>
               </div>
 
-              <!-- عنوان بارز فوق الغلاف -->
               <div class="absolute bottom-3 inset-x-4">
                 <span class="text-[11px] font-semibold text-slate-400">لقاء تفاعل #1</span>
                 <h3 class="text-base font-bold font-display text-white leading-snug group-hover:text-emerald-300 transition-colors">
@@ -467,7 +454,6 @@
               </div>
             </div>
 
-            <!-- تفاصيل المحتوى -->
             <div class="p-5">
               <p class="text-ink-600 text-xs sm:text-sm leading-relaxed mb-2">
                 قُسّم اللقاء لجزئين: استعراض تجارب نخبة من التقنيين لبعض أدوات الذكاء الاصطناعي، واستعراض مفهوم معمارية المعلومات وأساسياتها مع المهندس أحمد الزهراني
@@ -500,14 +486,14 @@
 
       </div>
 
-      <!-- حالة عدم وجود نتائج بعد التصفية -->
+      <!-- Empty Filter Feedback -->
       <div id="emptyFilterState" class="hidden text-center py-12 bg-white rounded-2xl border border-slate-200 shadow-xs mt-4">
         <p class="text-ink-500 text-xs font-medium">لا توجد لقاءات مسجلة في هذا القسم حاليًا</p>
       </div>
 
     </section>
 
-    <!-- قسم المؤسسين -->
+    <!-- Community Founders Section -->
     <section id="founders" class="py-12 px-5 sm:px-8 max-w-5xl mx-auto scroll-mt-24">
       
       <div class="text-center max-w-xl mx-auto mb-10">
@@ -516,38 +502,33 @@
         </h2>
       </div>
 
-      <!-- شبكة المؤسسين: عمودية في الجوال، و 3 أعمدة في سطح المكتب -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 items-end pt-2 md:pt-6">
         
-        <!-- بطاقة علي طيب (الرئيس): الأول في الجوال، والأوسط المرتفع في سطح المكتب -->
+        <!-- Founder Card: Ali Tayeb (Lead) -->
         <div class="solid-card rounded-2xl p-4 sm:p-5 md:p-6 flex flex-col justify-between border-t-4 border-t-brand-green shadow-sm md:shadow-lg bg-white ring-1 ring-brand-green/20 md:-translate-y-4 h-full relative z-20 order-1 md:order-2 gap-4">
           
           <div class="flex flex-row md:flex-col items-start md:items-center gap-4 md:gap-0">
-            <!-- جهة اليمين في الجوال (أعلى الكارد في اللابتوب): الصورة وتحتها المنصب -->
             <div class="flex flex-col items-center shrink-0 w-24 sm:w-28 md:w-full text-center">
               <div class="relative w-20 h-20 md:w-24 md:h-24 rounded-xl md:rounded-2xl overflow-hidden border-2 border-brand-green shadow-xs bg-brand-green-subtle flex items-center justify-center group shrink-0">
                 <img 
                   src="pics/ali.png" 
                   alt="علي طيب" 
-                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');"
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
+                  onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');" 
                 />
                 <div class="hidden w-full h-full flex flex-col items-center justify-center bg-brand-green-subtle text-brand-green font-bold font-display text-xs md:text-base">
                   <span>ع.ط</span>
                 </div>
               </div>
               
-              <!-- ليبل بنفسجي مميز تحت الصورة مباشرة في الجوال -->
               <span class="md:hidden text-[10px] font-semibold text-purple-700 bg-purple-50 px-2 py-0.5 rounded border border-purple-200 mt-2 text-center w-full">
                 رئيس المبادرة
               </span>
             </div>
 
-            <!-- جهة اليسار في الجوال: الاسم والنبذة (وفي اللابتوب: الاسم، الليبل، ثم النبذة) -->
             <div class="flex-1 min-w-0 md:w-full flex flex-col items-start md:items-center text-right md:text-center pt-0.5 md:pt-3">
               <h3 class="text-sm md:text-base font-bold font-display text-brand-navy">علي طيب</h3>
               
-              <!-- ليبل بنفسجي يظهر فقط في شاشات اللابتوب تحت الاسم -->
               <span class="hidden md:inline-block text-[11px] font-semibold text-purple-700 bg-purple-50 px-2.5 py-0.5 rounded border border-purple-200 mt-1 mb-2">
                 رئيس المبادرة
               </span>
@@ -558,7 +539,6 @@
             </div>
           </div>
 
-          <!-- زر تواصل معي عبر الواتساب لعلي طيب -->
           <div class="w-full pt-3 border-t border-slate-100 flex justify-center">
             <a href="https://wa.me/966559597829" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center justify-center gap-2 transition-all active:scale-95 shadow-2xs">
               <span>تواصل معي</span>
@@ -570,35 +550,31 @@
 
         </div>
 
-        <!-- بطاقة أحمد الزهراني (نائب الرئيس): الثاني في الجوال، والأول في اليمين بسطح المكتب -->
+        <!-- Founder Card: Ahmed Alzahrani (Vice President) -->
         <div class="solid-card rounded-2xl p-4 sm:p-5 md:p-6 flex flex-col justify-between border-t-4 border-t-brand-green h-full order-2 md:order-1 gap-4">
           
           <div class="flex flex-row md:flex-col items-start md:items-center gap-4 md:gap-0">
-            <!-- جهة اليمين في الجوال: الصورة وتحتها المنصب -->
             <div class="flex flex-col items-center shrink-0 w-24 sm:w-28 md:w-full text-center">
               <div class="relative w-20 h-20 md:w-24 md:h-24 rounded-xl md:rounded-2xl overflow-hidden border-2 border-slate-200 shadow-xs bg-slate-100 flex items-center justify-center group shrink-0">
                 <img 
                   src="pics/ahmed.jpg" 
                   alt="أحمد الزهراني" 
-                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');"
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
+                  onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');" 
                 />
                 <div class="hidden w-full h-full flex flex-col items-center justify-center bg-slate-100 text-brand-navy font-bold font-display text-xs md:text-base">
                   <span>أ.ز</span>
                 </div>
               </div>
-
-              <!-- ليبل أخضر تحت الصورة مباشرة في الجوال -->
+              
               <span class="md:hidden text-[10px] font-semibold text-brand-green bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 mt-2 text-center w-full">
                 نائب الرئيس
               </span>
             </div>
 
-            <!-- جهة اليسار في الجوال: الاسم والنبذة (وفي اللابتوب: الاسم، الليبل، ثم النبذة) -->
             <div class="flex-1 min-w-0 md:w-full flex flex-col items-start md:items-center text-right md:text-center pt-0.5 md:pt-3">
               <h3 class="text-sm md:text-base font-bold font-display text-brand-navy">أحمد الزهراني</h3>
               
-              <!-- ليبل أخضر يظهر فقط في شاشات اللابتوب تحت الاسم -->
               <span class="hidden md:inline-block text-[11px] font-semibold text-brand-green bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200 mt-1 mb-2">
                 نائب الرئيس
               </span>
@@ -609,7 +585,6 @@
             </div>
           </div>
 
-          <!-- زر تواصل معي عبر الواتساب لأحمد الزهراني -->
           <div class="w-full pt-3 border-t border-slate-100 flex justify-center">
             <a href="https://wa.me/966500778984" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center justify-center gap-2 transition-all active:scale-95 shadow-2xs">
               <span>تواصل معي</span>
@@ -621,35 +596,31 @@
 
         </div>
 
-        <!-- بطاقة محمد جبلي (المستشار): الثالث في الجوال وفي سطح المكتب -->
+        <!-- Founder Card: Mohammed Jabali (Advisor) -->
         <div class="solid-card rounded-2xl p-4 sm:p-5 md:p-6 flex flex-col justify-between border-t-4 border-t-brand-green h-full order-3 md:order-3 gap-4">
           
           <div class="flex flex-row md:flex-col items-start md:items-center gap-4 md:gap-0">
-            <!-- جهة اليمين في الجوال: الصورة وتحتها المنصب -->
             <div class="flex flex-col items-center shrink-0 w-24 sm:w-28 md:w-full text-center">
               <div class="relative w-20 h-20 md:w-24 md:h-24 rounded-xl md:rounded-2xl overflow-hidden border-2 border-brand-green-border shadow-xs bg-brand-green-subtle flex items-center justify-center group shrink-0">
                 <img 
                   src="pics/mohammed.jpg" 
                   alt="محمد جبلي" 
-                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');"
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
+                  onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');" 
                 />
                 <div class="hidden w-full h-full flex flex-col items-center justify-center bg-brand-green-subtle text-brand-green font-bold font-display text-xs md:text-base">
                   <span>م.ج</span>
                 </div>
               </div>
-
-              <!-- ليبل أخضر تحت الصورة مباشرة في الجوال -->
+              
               <span class="md:hidden text-[10px] font-semibold text-brand-green bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 mt-2 text-center w-full">
                 مستشار المبادرة
               </span>
             </div>
 
-            <!-- جهة اليسار في الجوال: الاسم والنبذة (وفي اللابتوب: الاسم، الليبل، ثم النبذة) -->
             <div class="flex-1 min-w-0 md:w-full flex flex-col items-start md:items-center text-right md:text-center pt-0.5 md:pt-3">
               <h3 class="text-sm md:text-base font-bold font-display text-brand-navy">محمد جبلي</h3>
               
-              <!-- ليبل أخضر يظهر فقط في شاشات اللابتوب تحت الاسم -->
               <span class="hidden md:inline-block text-[11px] font-semibold text-brand-green bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200 mt-1 mb-2">
                 مستشار المبادرة
               </span>
@@ -660,7 +631,6 @@
             </div>
           </div>
 
-          <!-- زر تواصل معي عبر الواتساب لمحمد جبلي -->
           <div class="w-full pt-3 border-t border-slate-100 flex justify-center">
             <a href="https://wa.me/966505501575" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center justify-center gap-2 transition-all active:scale-95 shadow-2xs">
               <span>تواصل معي</span>
@@ -675,14 +645,14 @@
       </div>
     </section>
 
-    <!-- قسم الأسئلة الشائعة -->
+    <!-- Frequently Asked Questions Accordion -->
     <section id="faq" class="py-12 px-5 sm:px-8 max-w-3xl mx-auto scroll-mt-24">
       <div class="text-center mb-8">
         <h2 class="text-2xl font-bold font-display text-brand-navy">الأسئلة الشائعة</h2>
       </div>
 
       <div class="space-y-3">
-        <!-- سؤال 1 -->
+        <!-- FAQ Item 1 -->
         <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
           <button onclick="toggleFaq(this)" class="w-full p-4 text-right flex items-center justify-between text-xs sm:text-sm font-bold text-brand-navy hover:bg-slate-50 transition-colors">
             <span>هل الانضمام وحضور اللقاءات مجاني؟</span>
@@ -693,7 +663,7 @@
           </div>
         </div>
 
-        <!-- سؤال 2 -->
+        <!-- FAQ Item 2 -->
         <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
           <button onclick="toggleFaq(this)" class="w-full p-4 text-right flex items-center justify-between text-xs sm:text-sm font-bold text-brand-navy hover:bg-slate-50 transition-colors">
             <span>هل يجب أن أكون مصمم واجهات وتجربة مستخدم للانضمام؟</span>
@@ -704,7 +674,7 @@
           </div>
         </div>
 
-        <!-- سؤال 3 -->
+        <!-- FAQ Item 3 -->
         <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
           <button onclick="toggleFaq(this)" class="w-full p-4 text-right flex items-center justify-between text-xs sm:text-sm font-bold text-brand-navy hover:bg-slate-50 transition-colors">
             <span>أين تعقد اللقاءات الحضورية؟</span>
@@ -717,7 +687,7 @@
       </div>
     </section>
 
-    <!-- دعوة للانضمام (Call to Action) -->
+    <!-- Call to Action Section -->
     <section class="py-12 px-5 sm:px-8 max-w-4xl mx-auto text-center">
       <div class="rounded-2xl p-8 sm:p-10 bg-brand-navy text-white border border-slate-800 shadow-elevated text-center relative overflow-hidden">
         
@@ -730,7 +700,6 @@
             مهما كان مجالك، راح نسعد بمعرفتك بيننا لأن هدفنا نبني شبكة مهنية مهتمة بتجربة المستخدم
           </p>
 
-          <!-- زر الدعوة -->
           <a href="https://forms.gle/sQmWoPeUZXBgLm9v8" target="_blank" rel="noopener noreferrer" class="google-form-link inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white font-semibold text-xs sm:text-sm transition-all shadow-md cursor-pointer">
             <span>حيّاك معنا</span>
             <span class="text-sm select-none">🤝</span>
@@ -742,7 +711,7 @@
 
   </main>
 
-  <!-- التذييل (Footer) -->
+  <!-- Footer Information -->
   <footer class="border-t border-slate-200 bg-white py-8 px-5 text-xs text-ink-500">
     <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
       <div>
@@ -760,15 +729,13 @@
   </footer>
 
   <script>
-    // رابط قوقل فورم
+    /* Google Forms dynamic link setup */
     const GOOGLE_FORM_URL = "https://forms.gle/sQmWoPeUZXBgLm9v8";
-
-    // تطبيق الرابط تلقائياً
     document.querySelectorAll('.google-form-link').forEach(link => {
       link.href = GOOGLE_FORM_URL;
     });
 
-    // القائمة في الجوال
+    /* Mobile navigation menu toggling */
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     function toggleMobileMenu() {
@@ -782,7 +749,7 @@
       mobileMenuBtn.addEventListener('click', toggleMobileMenu);
     }
 
-    // إخفاء وإظهار شريط التنقل في الجوال بتأثير مورف عند التمرير
+    /* Dynamic header visibility morphing on scroll */
     const navHeader = document.querySelector('header');
     function handleMobileNavMorph() {
       if (window.innerWidth < 768) {
@@ -801,7 +768,31 @@
     window.addEventListener('resize', handleMobileNavMorph);
     handleMobileNavMorph();
 
-    // تصفية اللقاءات
+    /* Dynamic meetups count calculation based on DOM cards */
+    function updateMeetupCounts() {
+      const cards = document.querySelectorAll('.meetup-card');
+      let upcomingCount = 0;
+      let pastCount = 0;
+
+      cards.forEach(card => {
+        const type = card.getAttribute('data-type');
+        if (type === 'upcoming') {
+          upcomingCount++;
+        } else if (type === 'past') {
+          pastCount++;
+        }
+      });
+
+      const countAll = document.getElementById('count-all');
+      const countUpcoming = document.getElementById('count-upcoming');
+      const countPast = document.getElementById('count-past');
+
+      if (countAll) countAll.textContent = cards.length;
+      if (countUpcoming) countUpcoming.textContent = upcomingCount;
+      if (countPast) countPast.textContent = pastCount;
+    }
+
+    /* Meetups category filtering */
     function filterMeetups(type) {
       const cards = document.querySelectorAll('.meetup-card');
       const buttons = document.querySelectorAll('.filter-btn');
@@ -837,19 +828,7 @@
       }
     }
 
-    // إضافة اللقاء إلى Google Calendar بتاريخ الإثنين 28 سبتمبر (28-09)
-    function addToCalendar(title, location) {
-      const now = new Date();
-      const year = now.getFullYear();
-      
-      const startStr = `${year}0928T193000`;
-      const endStr = `${year}0928T213000`;
-
-      const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startStr}/${endStr}&details=${encodeURIComponent('لقاء مجتمع تفاعل لتجربة المستخدم بمكة المكرمة')}&location=${encodeURIComponent(location)}`;
-      window.open(gcalUrl, '_blank');
-    }
-
-    // أسئلة شائعة (Accordion)
+    /* FAQ accordion toggle */
     function toggleFaq(button) {
       const answer = button.nextElementSibling;
       const icon = button.querySelector('.faq-icon');
@@ -863,6 +842,9 @@
         icon.textContent = '−';
       }
     }
+
+    /* Initial execution to sync counts and state */
+    updateMeetupCounts();
   </script>
 
 </body>
