@@ -86,9 +86,7 @@
 
     /* Active filter tab appearance */
     .filter-btn.active {
-      background-color: #0B1B33;
-      color: #FFFFFF;
-      box-shadow: 0 2px 6px rgba(11, 27, 51, 0.2);
+      color: #FFFFFF !important;
     }
 
     /* Custom scrollbar styles */
@@ -132,9 +130,42 @@
         will-change: transform, opacity, filter;
       }
     }
+
+    /* Smooth Grid Filtering Transition */
+    #meetupsGrid, #emptyFilterState {
+      transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+      will-change: opacity, transform;
+    }
+
+    /* Scroll Progress Bar */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 0%;
+      height: 3px;
+      background-color: #085A36;
+      z-index: 9999;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Scroll Reveal (Fade-up) */
+    .reveal-element {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-element.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body class="app-canvas selection:bg-brand-green selection:text-white min-h-screen flex flex-col justify-between">
+  
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
 
   <!-- Top Navigation Header -->
   <header class="fixed top-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all duration-200 mobile-nav-hidden">
@@ -214,7 +245,7 @@
 
     <!-- Hero Introduction Section -->
     <section class="py-12 sm:py-16 px-5 sm:px-8 max-w-4xl mx-auto text-center">
-      <div class="flex justify-center items-center w-40 h-40 mb-5 sm:mb-6 mx-auto"> 
+      <div class="reveal-element flex justify-center items-center w-40 h-40 mb-5 sm:mb-6 mx-auto"> 
         <img 
           src="pics/tafa3ol.nobg.png" 
           alt="شعار مجتمع تفاعل" 
@@ -226,18 +257,18 @@
         </div>
       </div>
 
-      <h1 class="text-3xl sm:text-5xl font-bold font-display text-brand-navy leading-[1.3] tracking-tight mb-5">
+      <h1 class="reveal-element text-3xl sm:text-5xl font-bold font-display text-brand-navy leading-[1.3] tracking-tight mb-5" style="transition-delay: 100ms;">
         مجتمع تفاعل
       </h1>
 
-      <p class="text-base sm:text-lg text-ink-600 max-w-2xl mx-auto font-light leading-relaxed mb-8">
+      <p class="reveal-element text-base sm:text-lg text-ink-600 max-w-2xl mx-auto font-light leading-relaxed mb-8" style="transition-delay: 200ms;">
         <strong>"تفاعل"</strong> مبادرة في مكة تجمع التقنيين، المصممين، ومدراء المنتجات لتبادل الخبرات وتكوين العلاقات المهنية عبر اللقاءات وورش العمل لنضج تجربة المستخدم
       </p>
     </section>
 
     <!-- WhatsApp Community Promotion Banner -->
     <section class="px-5 sm:px-8 max-w-4xl mx-auto mb-16">
-      <div class="rounded-2xl p-6 sm:p-7 bg-brand-navy text-white border border-slate-800 shadow-elevated flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
+      <div class="reveal-element rounded-2xl p-6 sm:p-7 bg-brand-navy text-white border border-slate-800 shadow-elevated flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
         
         <div class="absolute -left-10 -bottom-10 w-44 h-44 bg-brand-green/20 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -270,7 +301,7 @@
 
     <!-- Community Core Pillars -->
     <section id="about" class="py-12 px-5 sm:px-8 max-w-5xl mx-auto scroll-mt-24">
-      <div class="text-center max-w-xl mx-auto mb-10">
+      <div class="reveal-element text-center max-w-xl mx-auto mb-10">
         <h2 class="text-2xl sm:text-3xl font-bold font-display text-brand-navy">
           كيف نصنع الأثر في <span class="text-brand-green">تفاعل</span>؟
         </h2>
@@ -279,7 +310,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
         
         <!-- Pillar 1: Recurring Meetups -->
-        <div class="solid-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-brand-green">
+        <div class="reveal-element solid-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-brand-green" style="transition-delay: 100ms;">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="w-11 h-11 rounded-xl bg-brand-green-subtle text-brand-green border border-brand-green-border flex items-center justify-center">
@@ -299,7 +330,7 @@
         </div>
 
         <!-- Pillar 2: WhatsApp Discussion Community -->
-        <div class="solid-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-emerald-600">
+        <div class="reveal-element solid-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-emerald-600" style="transition-delay: 200ms;">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center justify-center">
@@ -319,7 +350,7 @@
         </div>
 
         <!-- Pillar 3: UX Audits & Consultations -->
-        <div class="solid-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-slate-300 bg-slate-50/50">
+        <div class="reveal-element solid-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-slate-300 bg-slate-50/50" style="transition-delay: 300ms;">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="w-11 h-11 rounded-xl bg-white text-ink-500 border border-slate-200 flex items-center justify-center shadow-xs">
@@ -349,144 +380,230 @@
       
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-5">
         <div>
-          <h2 class="text-2xl sm:text-3xl font-bold font-display text-brand-navy">لقاءات المجتمع</h2>
+          <h2 class="reveal-element text-2xl sm:text-3xl font-bold font-display text-brand-navy">لقاءات المجتمع</h2>
         </div>
 
         <!-- Meetups Category Filters -->
-        <div class="flex items-center p-1 bg-slate-200/80 rounded-xl border border-slate-200 self-start md:self-auto shadow-inner">
-          <button onclick="filterMeetups('all')" id="btn-all" class="filter-btn active px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all">
-            الكل (<span id="count-all">0</span>)
-          </button>
-          <button onclick="filterMeetups('upcoming')" id="btn-upcoming" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-ink-600 hover:text-ink-900 transition-all">
-            القادمة (<span id="count-upcoming">0</span>)
-          </button>
-          <button onclick="filterMeetups('past')" id="btn-past" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-ink-600 hover:text-ink-900 transition-all">
-            السابقة (<span id="count-past">0</span>)
-          </button>
-        </div>
-      </div>
-
-      <!-- Meetup Cards Grid -->
-      <div id="meetupsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div class="reveal-element relative flex items-center p-1 bg-slate-200/80 rounded-xl border border-slate-200 self-start md:self-auto shadow-inner">
+        <!-- Sliding Highlight Background -->
+        <div id="filter-slider" class="absolute bg-brand-navy rounded-lg transition-all duration-300 ease-out shadow-sm pointer-events-none" style="height: calc(100% - 8px); top: 4px; left: 4px; width: 0;"></div>
         
-        <!-- Meetup Card: Upcoming Session -->
-       <div class="relative h-40 w-full overflow-hidden bg-gradient-to-br from-slate-900 to-brand-navy">
-  <img
-    src="pics/Persuasive design pic.jpg"
-    alt="غلاف أساليب الإقناع في التصميم"
-    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-    style="opacity: 0.25; mix-blend-mode: luminosity;"
-    onerror="this.style.display='none';"
-  />
+        <button onclick="filterMeetups('all', this)" id="btn-all" class="filter-btn active text-white relative z-10 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-colors duration-300">
+          الكل (<span id="count-all">0</span>)
+        </button>
+        <button onclick="filterMeetups('upcoming', this)" id="btn-upcoming" class="filter-btn text-ink-600 relative z-10 px-3.5 py-1.5 rounded-lg text-xs font-medium hover:text-ink-900 transition-colors duration-300">
+          القادمة (<span id="count-upcoming">0</span>)
+        </button>
+        <button onclick="filterMeetups('past', this)" id="btn-past" class="filter-btn text-ink-600 relative z-10 px-3.5 py-1.5 rounded-lg text-xs font-medium hover:text-ink-900 transition-colors duration-300">
+          السابقة (<span id="count-past">0</span>)
+        </button>
+      </div>
+    </div>
 
-  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/50 to-transparent"></div>
-              
-              <div class="absolute top-3.5 inset-x-4 flex items-center justify-between gap-2 text-xs">
-                <span class="px-2.5 py-1 rounded-lg bg-emerald-500/90 text-white backdrop-blur-md font-semibold text-[11px] shadow-sm flex items-center gap-1">
-                  <span>📅</span>
-                  <span>الإثنين 05 / 10</span>
-                </span>
-                <span class="px-2.5 py-1 rounded-lg bg-white/20 text-white backdrop-blur-md font-medium text-[11px]">
-                  حضور مجاني • مقاعد محدودة
-                </span>
-              </div>
-
-              <div class="absolute bottom-3 inset-x-4">
-                <span class="text-[11px] font-semibold text-emerald-300">لقاء تفاعل #2</span>
-                <h3 class="text-base font-bold font-display text-white leading-snug">
-                  أساليب الإقناع في التصميم
-                </h3>
-              </div>
+    <!-- Meetup Cards Grid -->
+    <div id="meetupsGrid" class="reveal-element grid grid-cols-2 gap-3 sm:gap-5" style="transition-delay: 100ms;">
+      
+      <!-- Meetup Card: Upcoming Session (New) -->
+      <div class="meetup-card solid-card rounded-2xl overflow-hidden flex flex-col justify-between bg-white group hover:border-brand-green/60 transition-all cursor-default" data-type="upcoming">
+        <div>
+          <div class="relative h-32 sm:h-40 w-full overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 border-b border-slate-200">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMOCA4Wk04IDBMMCA4WiIgc3Ryb2tlPSIjZTJlOGYwIiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+')] opacity-50"></div>
+            
+            <div class="absolute top-3.5 inset-x-4 flex items-center justify-between gap-2 text-xs">
+              <span class="px-2 sm:px-2.5 py-1 rounded-lg bg-white/90 text-brand-navy backdrop-blur-md font-bold text-[9px] sm:text-[11px] border border-slate-200 flex items-center gap-1 shadow-sm">
+                <span>⏳</span>
+                <span>قريبًا</span>
+              </span>
             </div>
 
-            <div class="p-5">
-              <p class="text-ink-600 text-xs sm:text-sm leading-relaxed mb-2">
-                جلسة متخصصة لاستكشاف علم النفس السلوكي ومبادئ التأثير والإقناع الإدراكي في بناء تجارب مستخدم تصنع قرارات رقمية سلسة
-              </p>
+            <div class="absolute bottom-3 inset-x-4 z-10">
+              <span class="text-[10px] sm:text-[11px] font-semibold text-brand-green">لقاء تفاعل #4</span>
+              <h3 class="text-xs sm:text-base font-bold font-display text-brand-navy leading-snug line-clamp-2">
+                اللقاء القادم؟
+              </h3>
             </div>
           </div>
 
-          <div class="px-5 pb-5 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs">
-            <div class="flex items-center gap-1.5 text-ink-600 font-medium text-[11px]">
-              <svg class="w-3.5 h-3.5 text-brand-green shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-              <span>مكة (الحمراء) • سكاي أوفيس</span>
-            </div>
-            <div class="flex items-center gap-3">
-              <a href="https://maps.app.goo.gl/9rBQrixDHarcGvbp7?g_st=ic" target="_blank" rel="noopener noreferrer" class="google-form-link text-brand-green font-semibold hover:underline flex items-center gap-1 cursor-pointer">
-                <span>الموقع</span>
-                <span class="text-xs">📍</span>
-              </a>
-            </div>
+          <div class="p-4 sm:p-5">
+            <p class="text-ink-600 text-[10px] sm:text-sm leading-relaxed mb-2 line-clamp-3">
+              نعمل على ترتيب تفاصيل اللقاء القادم. ابقَ بالقرب وشاركنا مقترحاتك في مجتمع الواتساب!
+            </p>
           </div>
         </div>
 
-        <!-- Meetup Card: Past Session -->
-        <a href="https://x.com/tafa3ol_com/status/2102426083064975491?s=20" target="_blank" rel="noopener noreferrer" title="مشاهدة تغطية اللقاء على منصة X" class="meetup-card solid-card rounded-2xl overflow-hidden flex flex-col justify-between bg-slate-50/70 opacity-95 group hover:border-brand-green/60 transition-all cursor-pointer block text-inherit no-underline" data-type="past">
-          <div>
-            <div class="relative h-40 w-full overflow-hidden bg-gradient-to-br from-slate-900 to-brand-navy">
-              <img 
-                src="pics/tafa3ol-1st.jpeg" 
-                alt="غلاف AI & IA"
-                class="w-full h-full object-cover opacity-25 mix-blend-luminosity transition-transform duration-500 group-hover:scale-105"
-                onerror="this.style.display='none';" 
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/50 to-transparent"></div>
-
-              <div class="absolute top-3.5 inset-x-4 flex items-center justify-between gap-2 text-xs">
-                <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-slate-200 backdrop-blur-md font-medium text-[11px] border border-slate-700/60 flex items-center gap-1">
-                  <span>📅</span>
-                  <span>الأحد 20 / 9</span>
-                </span>
-                <span class="px-2.5 py-1 rounded-lg bg-slate-800/80 text-emerald-400 backdrop-blur-md font-medium text-[11px] border border-slate-700/60 flex items-center gap-1">
-                  <span>برعاية زد (Zid)</span>
-                  <span class="text-amber-400">✨</span>
-                </span>
-              </div>
-
-              <div class="absolute bottom-3 inset-x-4">
-                <span class="text-[11px] font-semibold text-slate-400">لقاء تفاعل #1</span>
-                <h3 class="text-base font-bold font-display text-white leading-snug group-hover:text-emerald-300 transition-colors">
-                  AI &amp; IA (الذكاء الاصطناعي ومعمارية المعلومات)
-                </h3>
-              </div>
-            </div>
-
-            <div class="p-5">
-              <p class="text-ink-600 text-xs sm:text-sm leading-relaxed mb-2">
-                قُسّم اللقاء لجزئين: استعراض تجارب نخبة من التقنيين لبعض أدوات الذكاء الاصطناعي، واستعراض مفهوم معمارية المعلومات وأساسياتها مع المهندس أحمد الزهراني
-              </p>
-            </div>
+        <div class="px-4 sm:px-5 pb-4 sm:pb-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+          <div class="flex items-center gap-1.5 text-ink-500 font-medium text-[9px] sm:text-[11px]">
+            <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span class="truncate">يُحدد لاحقًا</span>
           </div>
-
-          <div class="px-5 pb-5 pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
-            <div class="flex items-center gap-1.5 text-ink-600 font-medium text-[11px]">
-              <svg class="w-3.5 h-3.5 text-brand-green shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-              <span>مكة (الحمراء) • سكاي أوفيس</span>
-            </div>
-
-            <div class="flex items-center gap-2">
-              <span class="text-brand-navy text-[11px] font-semibold group-hover:text-brand-green flex items-center gap-1 transition-colors">
-                <span>تغطية اللقاء</span>
-                <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-              </span>
-              <span class="text-brand-green font-semibold text-[11px] flex items-center gap-0.5">
-                <span>✓</span>
-              </span>
-            </div>
-          </div>
-        </a>
-
+        </div>
       </div>
 
-      <!-- Empty Filter Feedback -->
+      <!-- Meetup Card: Meetup 3 (Past - Nov 4) -->
+      <div class="meetup-card solid-card rounded-2xl overflow-hidden flex flex-col justify-between bg-slate-50/70 opacity-95 group hover:border-brand-green/60 transition-all" data-type="past">
+        <div>
+          <div class="relative h-32 sm:h-40 w-full overflow-hidden bg-gradient-to-br from-slate-900 to-brand-navy">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/50 to-transparent"></div>
+
+            <div class="absolute top-3.5 inset-x-4 flex items-center justify-between gap-2 text-xs">
+              <span class="px-2 sm:px-2.5 py-1 rounded-lg bg-slate-800/80 text-slate-200 backdrop-blur-md font-medium text-[9px] sm:text-[11px] border border-slate-700/60 flex items-center gap-1">
+                <span>📅</span>
+                <span>الإثنين 04 / 11</span>
+              </span>
+              <span class="hidden sm:flex px-2.5 py-1 rounded-lg bg-slate-800/80 text-sky-400 backdrop-blur-md font-medium text-[11px] border border-slate-700/60 items-center gap-1">
+                <span>برعاية سكاي أوفيس</span>
+                <span class="text-sky-300">☁️</span>
+              </span>
+            </div>
+
+            <div class="absolute bottom-3 inset-x-4">
+              <span class="text-[10px] sm:text-[11px] font-semibold text-slate-400">لقاء تفاعل #3</span>
+              <h3 class="text-xs sm:text-base font-bold font-display text-white leading-snug group-hover:text-emerald-300 transition-colors line-clamp-2">
+                جلسة حوارية "تجربة المستخدم الاصطناعي"
+              </h3>
+            </div>
+          </div>
+
+          <div class="p-4 sm:p-5">
+            <p class="text-ink-600 text-[10px] sm:text-sm leading-relaxed mb-2 line-clamp-3">
+              ماذا لو كان المستخدم هو الذكاء الاصطناعي؟ كيف سنقدم له تجربة مستخدم أفضل؟
+            </p>
+          </div>
+        </div>
+
+        <div class="px-4 sm:px-5 pb-4 sm:pb-5 pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+          <div class="flex items-center gap-1.5 text-ink-600 font-medium text-[9px] sm:text-[11px]">
+            <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-green shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span class="truncate">مكة • سكاي أوفيس</span>
+          </div>
+          
+          <div class="flex items-center gap-2">
+            <span class="text-brand-green font-semibold text-[11px] flex items-center gap-0.5">
+              <span>✓</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meetup Card: Meetup 2 (Past - Oct 5) -->
+      <div class="meetup-card solid-card rounded-2xl overflow-hidden flex flex-col justify-between bg-slate-50/70 opacity-95 group hover:border-brand-green/60 transition-all" data-type="past">
+        <div>
+          <div class="relative h-32 sm:h-40 w-full overflow-hidden bg-gradient-to-br from-slate-900 to-brand-navy">
+            <img
+              src="pics/Persuasive design pic.jpg"
+              alt="غلاف التصميم الإقناعي"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              style="opacity: 0.25; mix-blend-mode: luminosity;"
+              onerror="this.style.display='none';"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/50 to-transparent"></div>
+            
+            <div class="absolute top-3.5 inset-x-4 flex items-center justify-between gap-2 text-xs">
+              <span class="px-2 sm:px-2.5 py-1 rounded-lg bg-slate-800/80 text-slate-200 backdrop-blur-md font-medium text-[9px] sm:text-[11px] border border-slate-700/60 flex items-center gap-1">
+                <span>📅</span>
+                <span>الإثنين 05 / 10</span>
+              </span>
+              <span class="hidden sm:flex px-2.5 py-1 rounded-lg bg-slate-800/80 text-sky-400 backdrop-blur-md font-medium text-[11px] border border-slate-700/60 items-center gap-1">
+                <span>برعاية سكاي أوفيس</span>
+                <span class="text-sky-300">☁️</span>
+              </span>
+            </div>
+
+            <div class="absolute bottom-3 inset-x-4">
+              <span class="text-[10px] sm:text-[11px] font-semibold text-slate-400">لقاء تفاعل #2</span>
+              <h3 class="text-xs sm:text-base font-bold font-display text-white leading-snug group-hover:text-emerald-300 transition-colors line-clamp-2">
+                التصميم الإقناعي
+              </h3>
+            </div>
+          </div>
+
+          <div class="p-4 sm:p-5">
+            <p class="text-ink-600 text-[10px] sm:text-sm leading-relaxed mb-2 line-clamp-3">
+              جلسة متخصصة لاستكشاف علم النفس السلوكي ومبادئ التأثير والإقناع الإدراكي في بناء تجارب مستخدم تصنع قرارات رقمية سلسة
+            </p>
+          </div>
+        </div>
+
+        <div class="px-4 sm:px-5 pb-4 sm:pb-5 pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+          <div class="flex items-center gap-1.5 text-ink-600 font-medium text-[9px] sm:text-[11px]">
+            <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-green shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span class="truncate">مكة • سكاي أوفيس</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-brand-green font-semibold text-[11px] flex items-center gap-0.5">
+              <span>✓</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meetup Card: Meetup 1 (Past - Sep 20) -->
+      <a href="https://x.com/tafa3ol_com/status/2102426083064975491?s=20" target="_blank" rel="noopener noreferrer" title="مشاهدة تغطية اللقاء على منصة X" class="meetup-card solid-card rounded-2xl overflow-hidden flex flex-col justify-between bg-slate-50/70 opacity-95 group hover:border-brand-green/60 transition-all cursor-pointer block text-inherit no-underline" data-type="past">
+        <div>
+          <div class="relative h-32 sm:h-40 w-full overflow-hidden bg-gradient-to-br from-slate-900 to-brand-navy">
+            <img 
+              src="pics/tafa3ol-1st.jpeg" 
+              alt="غلاف AI & IA"
+              class="w-full h-full object-cover opacity-25 mix-blend-luminosity transition-transform duration-500 group-hover:scale-105"
+              onerror="this.style.display='none';" 
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/50 to-transparent"></div>
+
+            <div class="absolute top-3.5 inset-x-4 flex items-center justify-between gap-2 text-xs">
+              <span class="px-2 sm:px-2.5 py-1 rounded-lg bg-slate-800/80 text-slate-200 backdrop-blur-md font-medium text-[9px] sm:text-[11px] border border-slate-700/60 flex items-center gap-1">
+                <span>📅</span>
+                <span>الأحد 20 / 9</span>
+              </span>
+              <span class="hidden sm:flex px-2.5 py-1 rounded-lg bg-slate-800/80 text-emerald-400 backdrop-blur-md font-medium text-[11px] border border-slate-700/60 items-center gap-1">
+                <span>برعاية زد</span>
+                <span class="text-amber-400">✨</span>
+              </span>
+            </div>
+
+            <div class="absolute bottom-3 inset-x-4">
+              <span class="text-[10px] sm:text-[11px] font-semibold text-slate-400">لقاء تفاعل #1</span>
+              <h3 class="text-xs sm:text-base font-bold font-display text-white leading-snug group-hover:text-emerald-300 transition-colors line-clamp-2">
+                AI &amp; IA 
+              </h3>
+            </div>
+          </div>
+
+          <div class="p-4 sm:p-5">
+            <p class="text-ink-600 text-[10px] sm:text-sm leading-relaxed mb-2 line-clamp-3">
+              قُسّم اللقاء لجزئين: استعراض تجارب نخبة من التقنيين لبعض أدوات الذكاء الاصطناعي، واستعراض مفهوم معمارية المعلومات
+            </p>
+          </div>
+        </div>
+
+        <div class="px-4 sm:px-5 pb-4 sm:pb-5 pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
+          <div class="flex items-center gap-1.5 text-ink-600 font-medium text-[9px] sm:text-[11px]">
+            <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-green shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span class="truncate">مكة • سكاي أوفيس</span>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="text-brand-green font-semibold text-[11px] flex items-center gap-0.5">
+              <span>✓</span>
+            </span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Empty Filter Feedback -->
       <div id="emptyFilterState" class="hidden text-center py-12 bg-white rounded-2xl border border-slate-200 shadow-xs mt-4">
         <p class="text-ink-500 text-xs font-medium">لا توجد لقاءات مسجلة في هذا القسم حاليًا</p>
       </div>
@@ -496,16 +613,16 @@
     <!-- Community Founders Section -->
     <section id="founders" class="py-12 px-5 sm:px-8 max-w-5xl mx-auto scroll-mt-24">
       
-      <div class="text-center max-w-xl mx-auto mb-10">
+      <div class="reveal-element text-center max-w-xl mx-auto mb-10">
         <h2 class="text-2xl sm:text-3xl font-bold font-display text-brand-navy">
-          مؤسسي <span class="text-brand-green">تفاعل</span>
+          فريق <span class="text-brand-green">تفاعل</span>
         </h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 items-end pt-2 md:pt-6">
         
         <!-- Founder Card: Ali Tayeb (Lead) -->
-        <div class="solid-card rounded-2xl p-4 sm:p-5 md:p-6 flex flex-col justify-between border-t-4 border-t-brand-green shadow-sm md:shadow-lg bg-white ring-1 ring-brand-green/20 md:-translate-y-4 h-full relative z-20 order-1 md:order-2 gap-4">
+        <div class="reveal-element solid-card rounded-2xl p-4 sm:p-5 md:p-6 flex flex-col justify-between border-t-4 border-t-brand-green shadow-sm md:shadow-lg bg-white ring-1 ring-brand-green/20 md:-translate-y-4 h-full relative z-20 order-1 md:order-2 gap-4" style="transition-delay: 100ms;">
           
           <div class="flex flex-row md:flex-col items-start md:items-center gap-4 md:gap-0">
             <div class="flex flex-col items-center shrink-0 w-24 sm:w-28 md:w-full text-center">
@@ -551,7 +668,7 @@
         </div>
 
         <!-- Founder Card: Ahmed Alzahrani (Vice President) -->
-        <div class="solid-card rounded-2xl p-4 sm:p-5 md:p-6 flex flex-col justify-between border-t-4 border-t-brand-green h-full order-2 md:order-1 gap-4">
+        <div class="reveal-element solid-card rounded-2xl p-4 sm:p-5 md:p-6 flex flex-col justify-between border-t-4 border-t-brand-green h-full order-2 md:order-1 gap-4" style="transition-delay: 200ms;">
           
           <div class="flex flex-row md:flex-col items-start md:items-center gap-4 md:gap-0">
             <div class="flex flex-col items-center shrink-0 w-24 sm:w-28 md:w-full text-center">
@@ -597,7 +714,7 @@
         </div>
 
         <!-- Founder Card: Mohammed Jabali (Advisor) -->
-        <div class="solid-card rounded-2xl p-4 sm:p-5 md:p-6 flex flex-col justify-between border-t-4 border-t-brand-green h-full order-3 md:order-3 gap-4">
+        <div class="reveal-element solid-card rounded-2xl p-4 sm:p-5 md:p-6 flex flex-col justify-between border-t-4 border-t-brand-green h-full order-3 md:order-3 gap-4" style="transition-delay: 300ms;">
           
           <div class="flex flex-row md:flex-col items-start md:items-center gap-4 md:gap-0">
             <div class="flex flex-col items-center shrink-0 w-24 sm:w-28 md:w-full text-center">
@@ -647,11 +764,11 @@
 
     <!-- Frequently Asked Questions Accordion -->
     <section id="faq" class="py-12 px-5 sm:px-8 max-w-3xl mx-auto scroll-mt-24">
-      <div class="text-center mb-8">
+      <div class="reveal-element text-center mb-8">
         <h2 class="text-2xl font-bold font-display text-brand-navy">الأسئلة الشائعة</h2>
       </div>
 
-      <div class="space-y-3">
+      <div class="reveal-element space-y-3" style="transition-delay: 100ms;">
         <!-- FAQ Item 1 -->
         <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
           <button onclick="toggleFaq(this)" class="w-full p-4 text-right flex items-center justify-between text-xs sm:text-sm font-bold text-brand-navy hover:bg-slate-50 transition-colors">
@@ -689,7 +806,7 @@
 
     <!-- Call to Action Section -->
     <section class="py-12 px-5 sm:px-8 max-w-4xl mx-auto text-center">
-      <div class="rounded-2xl p-8 sm:p-10 bg-brand-navy text-white border border-slate-800 shadow-elevated text-center relative overflow-hidden">
+      <div class="reveal-element rounded-2xl p-8 sm:p-10 bg-brand-navy text-white border border-slate-800 shadow-elevated text-center relative overflow-hidden">
         
         <div class="max-w-md mx-auto relative z-10">
           <h2 class="text-2xl sm:text-3xl font-bold font-display text-white mb-3">
@@ -792,40 +909,82 @@
       if (countPast) countPast.textContent = pastCount;
     }
 
+    /* -------------------------------------------------------------
+       Micro-interactions: Sliding Filter Background 
+    ------------------------------------------------------------- */
+    function updateSliderPosition(btn) {
+      const slider = document.getElementById('filter-slider');
+      if (btn && slider) {
+        slider.style.width = btn.offsetWidth + 'px';
+        // In RTL layout, offsetLeft gets the distance from the left edge of the parent.
+        slider.style.left = btn.offsetLeft + 'px';
+      }
+    }
+
+    function initFilterSlider() {
+      const activeBtn = document.querySelector('.filter-btn.active') || document.getElementById('btn-all');
+      updateSliderPosition(activeBtn);
+    }
+
     /* Meetups category filtering */
-    function filterMeetups(type) {
+    function filterMeetups(type, btnElement) {
       const cards = document.querySelectorAll('.meetup-card');
       const buttons = document.querySelectorAll('.filter-btn');
       const emptyState = document.getElementById('emptyFilterState');
+      const grid = document.getElementById('meetupsGrid');
 
+      // 1. Update buttons text color
       buttons.forEach(btn => {
-        btn.classList.remove('active');
+        btn.classList.remove('active', 'text-white');
         btn.classList.add('text-ink-600');
       });
 
-      const activeBtn = document.getElementById(`btn-${type}`);
+      const activeBtn = btnElement || document.getElementById(`btn-${type}`);
       if (activeBtn) {
-        activeBtn.classList.add('active');
+        activeBtn.classList.add('active', 'text-white');
         activeBtn.classList.remove('text-ink-600');
+        updateSliderPosition(activeBtn);
       }
 
-      let visibleCount = 0;
-      cards.forEach(card => {
-        if (type === 'all' || card.getAttribute('data-type') === type) {
-          card.style.display = 'flex';
-          visibleCount++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-
+      // 2. Animate out the current grid/empty state
+      grid.style.opacity = '0';
+      grid.style.transform = 'translateY(10px) scale(0.98)';
       if (emptyState) {
-        if (visibleCount === 0) {
-          emptyState.classList.remove('hidden');
-        } else {
-          emptyState.classList.add('hidden');
-        }
+        emptyState.style.opacity = '0';
+        emptyState.style.transform = 'translateY(10px) scale(0.98)';
       }
+
+      // 3. Wait for the transition to finish, then swap content and animate in
+      setTimeout(() => {
+        let visibleCount = 0;
+        cards.forEach(card => {
+          if (type === 'all' || card.getAttribute('data-type') === type) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (emptyState) {
+          if (visibleCount === 0) {
+            emptyState.classList.remove('hidden');
+          } else {
+            emptyState.classList.add('hidden');
+          }
+        }
+
+        // Force browser to recalculate layout before animating back in
+        void grid.offsetWidth;
+
+        // Animate in
+        grid.style.opacity = '1';
+        grid.style.transform = 'translateY(0) scale(1)';
+        if (emptyState && visibleCount === 0) {
+          emptyState.style.opacity = '1';
+          emptyState.style.transform = 'translateY(0) scale(1)';
+        }
+      }, 250); // 250ms matches the CSS transition duration
     }
 
     /* FAQ accordion toggle */
@@ -845,6 +1004,51 @@
 
     /* Initial execution to sync counts and state */
     updateMeetupCounts();
+
+    /* -------------------------------------------------------------
+       Scroll Progress Bar Logic
+    ------------------------------------------------------------- */
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      const progressEl = document.getElementById('scroll-progress');
+      if (progressEl) {
+        progressEl.style.width = scrolled + '%';
+      }
+    }, { passive: true });
+
+    /* -------------------------------------------------------------
+       Scroll Reveal Intersection Observer
+    ------------------------------------------------------------- */
+    const revealElements = document.querySelectorAll('.reveal-element');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        } else {
+          // تأثير الخروج السلس عند الخروج من الشاشة
+          entry.target.classList.remove('revealed');
+        }
+      });
+    }, {
+      threshold: 0.1, 
+      rootMargin: "0px 0px -40px 0px" 
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    /* Initialize UI Elements on load and resize */
+    window.addEventListener('load', () => {
+      initFilterSlider();
+    });
+    
+    // Recalculate slider on resize as button widths might change
+    window.addEventListener('resize', () => {
+      const activeBtn = document.querySelector('.filter-btn.active');
+      if (activeBtn) updateSliderPosition(activeBtn);
+    });
+
   </script>
 
 </body>
