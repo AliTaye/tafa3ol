@@ -55,112 +55,7 @@
     }
   </script>
 
-  <style>
-    /* Base typography and body colors */
-    body {
-      font-family: 'Readex Pro', sans-serif;
-      background-color: #F8FAFC;
-      color: #1E293B;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Subtle dot grid canvas background */
-    .app-canvas {
-      background-image: radial-gradient(#CBD5E1 0.75px, transparent 0.75px);
-      background-size: 24px 24px;
-      background-color: #F8FAFC;
-    }
-
-    /* Interactive card styling */
-    .solid-card {
-      background-color: #FFFFFF;
-      border: 1px solid #E2E8F0;
-      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.02);
-      transition: border-color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
-    }
-    .solid-card:hover {
-      border-color: #CBD5E1;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.06);
-    }
-
-    /* Active filter tab appearance */
-    .filter-btn.active {
-      color: #FFFFFF !important;
-    }
-
-    /* Custom scrollbar styles */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #F8FAFC;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #CBD5E1;
-      border-radius: 999px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #085A36;
-    }
-
-    /* Mobile header animation states */
-    @media (max-width: 767.98px) {
-      header.mobile-nav-hidden {
-        opacity: 0 !important;
-        transform: translateY(-115%) scale(0.9) !important;
-        pointer-events: none !important;
-        filter: blur(10px) !important;
-        border-radius: 0 0 2rem 2rem;
-      }
-      header.mobile-nav-visible {
-        opacity: 1 !important;
-        transform: translateY(0) scale(1) !important;
-        pointer-events: auto !important;
-        filter: blur(0px) !important;
-        border-radius: 0 0 0 0;
-      }
-      header {
-        transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-                    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-                    filter 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-                    border-radius 0.85s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        transform-origin: top center;
-        will-change: transform, opacity, filter;
-      }
-    }
-
-    /* Smooth Grid Filtering Transition */
-    #meetupsGrid, #emptyFilterState {
-      transition: opacity 0.25s ease-out, transform 0.25s ease-out;
-      will-change: opacity, transform;
-    }
-
-    /* Scroll Progress Bar */
-    #scroll-progress {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 0%;
-      height: 3px;
-      background-color: #085A36;
-      z-index: 9999;
-      transition: width 0.1s ease-out;
-    }
-
-    /* Scroll Reveal (Fade-up) */
-    .reveal-element {
-      opacity: 0;
-      transform: translateY(25px);
-      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
-    }
-    .reveal-element.revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="app-canvas selection:bg-brand-green selection:text-white min-h-screen flex flex-col justify-between">
   
@@ -222,10 +117,10 @@
 
     <!-- Mobile Drawer Menu -->
     <div id="mobileMenu" class="hidden md:hidden px-5 py-5 bg-white border-b border-slate-200 space-y-3 text-center text-xs shadow-lg transition-all">
-      <a href="#about" class="block py-2 text-ink-700 font-medium hover:text-brand-green" onclick="toggleMobileMenu()">عن المجتمع</a>
-      <a href="#meetups" class="block py-2 text-ink-700 font-medium hover:text-brand-green" onclick="toggleMobileMenu()">اللقاءات</a>
-      <a href="#founders" class="block py-2 text-ink-700 font-medium hover:text-brand-green" onclick="toggleMobileMenu()">فريقنا</a>
-      <a href="#faq" class="block py-2 text-ink-700 font-medium hover:text-brand-green" onclick="toggleMobileMenu()">الأسئلة الشائعة</a>
+      <a href="#about" class="block py-2 text-ink-700 font-medium hover:text-brand-green">عن المجتمع</a>
+      <a href="#meetups" class="block py-2 text-ink-700 font-medium hover:text-brand-green">اللقاءات</a>
+      <a href="#founders" class="block py-2 text-ink-700 font-medium hover:text-brand-green">فريقنا</a>
+      <a href="#faq" class="block py-2 text-ink-700 font-medium hover:text-brand-green">الأسئلة الشائعة</a>
       <a href="https://x.com/tafa3ol_com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2 text-ink-700 font-medium hover:text-black">
         <span>تابعنا على تويتر</span>
         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -233,7 +128,7 @@
         </svg>
       </a>
       <div class="pt-2">
-        <a href="https://forms.gle/sQmWoPeUZXBgLm9v8" target="_blank" rel="noopener noreferrer" onclick="toggleMobileMenu();" class="google-form-link w-full py-3 rounded-xl bg-brand-green text-white font-bold flex items-center justify-center gap-2 shadow-sm">
+        <a href="https://forms.gle/sQmWoPeUZXBgLm9v8" target="_blank" rel="noopener noreferrer" class="google-form-link w-full py-3 rounded-xl bg-brand-green text-white font-bold flex items-center justify-center gap-2 shadow-sm">
           <span>حيّاك معنا</span>
           <span class="text-sm select-none">👋</span>
         </a>
@@ -307,71 +202,9 @@
         </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div id="pillarGrid" class="grid grid-cols-1 md:grid-cols-3 gap-5">
         
-        <!-- Pillar 1: Recurring Meetups -->
-        <div class="reveal-element solid-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-brand-green" style="transition-delay: 100ms;">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="w-11 h-11 rounded-xl bg-brand-green-subtle text-brand-green border border-brand-green-border flex items-center justify-center">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-                </svg>
-              </span>
-            </div>
-            <h3 class="text-base font-bold font-display text-brand-navy mb-2">لقاءات دورية</h3>
-            <p class="text-ink-600 text-xs sm:text-sm leading-relaxed">
-              جلسات حضورية وافتراضية للتعارف بين أعضاء المجتمع، تبادل الخبرات، وتشارك المعرفة
-            </p>
-          </div>
-          <div class="mt-5 pt-3 border-t border-slate-100 text-brand-green text-xs font-semibold">
-            بناء مجتمع مهني
-          </div>
-        </div>
-
-        <!-- Pillar 2: WhatsApp Discussion Community -->
-        <div class="reveal-element solid-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-emerald-600" style="transition-delay: 200ms;">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center justify-center">
-                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                </svg>
-              </span>
-            </div>
-            <h3 class="text-base font-bold font-display text-brand-navy mb-2">مجتمع حواري في واتساب</h3>
-            <p class="text-ink-600 text-xs sm:text-sm leading-relaxed">
-              مساحة يومية مستمرة لتبادل المعرفة، طرح الأسئلة المهنية، ومناقشة تجارب المستخدم وحلولها مع أعضاء المجتمع
-            </p>
-          </div>
-          <div class="mt-5 pt-3 border-t border-slate-100 text-emerald-700 text-xs font-semibold">
-            تواصل مستمر ونقاشات مهنية
-          </div>
-        </div>
-
-        <!-- Pillar 3: UX Audits & Consultations -->
-        <div class="reveal-element solid-card rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-slate-300 bg-slate-50/50" style="transition-delay: 300ms;">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="w-11 h-11 rounded-xl bg-white text-ink-500 border border-slate-200 flex items-center justify-center shadow-xs">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                </svg>
-              </span>
-              <span class="text-[11px] font-semibold bg-amber-50 text-amber-700 border border-amber-200 px-2.5 py-0.5 rounded-full">
-                قريبًا
-              </span>
-            </div>
-            <h3 class="text-base font-bold font-display text-ink-800 mb-2">استشارات وتدقيق واجهات</h3>
-            <p class="text-ink-500 text-xs sm:text-sm leading-relaxed">
-              مبادرة تعاونية لمراجعة وتدقيق واجهات الجهات المحلية (UX Audit) واكتشاف نقاط التعثر بالتعاون مع كفاءات المجتمع
-            </p>
-          </div>
-          <div class="mt-5 pt-3 border-t border-slate-200 text-ink-500 text-xs font-medium">
-            مرحلة متقدمة مع نضج المجتمع
-          </div>
-        </div>
-
+        <!-- Reusable PillarCard components inserted by js/main.js -->
       </div>
     </section>
 
@@ -388,13 +221,13 @@
         <!-- Sliding Highlight Background -->
         <div id="filter-slider" class="absolute bg-brand-navy rounded-lg transition-all duration-300 ease-out shadow-sm pointer-events-none" style="height: calc(100% - 8px); top: 4px; left: 4px; width: 0;"></div>
         
-        <button onclick="filterMeetups('all', this)" id="btn-all" class="filter-btn active text-white relative z-10 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-colors duration-300">
+        <button id="btn-all" class="filter-btn active text-white relative z-10 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-colors duration-300">
           الكل (<span id="count-all">0</span>)
         </button>
-        <button onclick="filterMeetups('upcoming', this)" id="btn-upcoming" class="filter-btn text-ink-600 relative z-10 px-3.5 py-1.5 rounded-lg text-xs font-medium hover:text-ink-900 transition-colors duration-300">
+        <button id="btn-upcoming" class="filter-btn text-ink-600 relative z-10 px-3.5 py-1.5 rounded-lg text-xs font-medium hover:text-ink-900 transition-colors duration-300">
           القادمة (<span id="count-upcoming">0</span>)
         </button>
-        <button onclick="filterMeetups('past', this)" id="btn-past" class="filter-btn text-ink-600 relative z-10 px-3.5 py-1.5 rounded-lg text-xs font-medium hover:text-ink-900 transition-colors duration-300">
+        <button id="btn-past" class="filter-btn text-ink-600 relative z-10 px-3.5 py-1.5 rounded-lg text-xs font-medium hover:text-ink-900 transition-colors duration-300">
           السابقة (<span id="count-past">0</span>)
         </button>
       </div>
@@ -403,213 +236,7 @@
     <!-- Meetup Cards Grid -->
     <div id="meetupsGrid" class="reveal-element grid grid-cols-2 gap-3 sm:gap-5" style="transition-delay: 100ms;">
       
-      <!-- Meetup Card: Upcoming Session (New) -->
-      <a class="meetup-card solid-card rounded-2xl overflow-hidden flex flex-col justify-between bg-white group hover:border-brand-green/60 transition-all cursor-default" data-type="upcoming">
-        <div>
-          <div class="relative h-32 sm:h-40 w-full overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 border-b border-slate-200">
-            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDBMOCA4Wk04IDBMMCA4WiIgc3Ryb2tlPSIjZTJlOGYwIiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+')] opacity-50"></div>
-            
-            <div class="absolute top-3.5 inset-x-4 flex items-center justify-between gap-2 text-xs">
-              <span class="px-2 sm:px-2.5 py-1 rounded-lg bg-white/90 text-brand-navy backdrop-blur-md font-bold text-[9px] sm:text-[11px] border border-slate-200 flex items-center gap-1 shadow-sm">
-                <span>⏳</span>
-                <span>قريبًا</span>
-              </span>
-            </div>
-
-            <div class="absolute bottom-3 inset-x-4 z-10">
-              <span class="text-[10px] sm:text-[11px] font-semibold text-brand-green">لقاء تفاعل #4</span>
-              <h3 class="text-xs sm:text-base font-bold font-display text-brand-navy leading-snug line-clamp-2">
-                اللقاء القادم؟
-              </h3>
-            </div>
-          </div>
-
-          <div class="p-4 sm:p-5">
-            <p class="text-ink-600 text-[10px] sm:text-sm leading-relaxed mb-2 line-clamp-3">
-              نعمل على ترتيب تفاصيل اللقاء القادم. ابقَ بالقرب وشاركنا مقترحاتك في مجتمع الواتساب!
-            </p>
-          </div>
-        </div>
-
-        <div class="px-4 sm:px-5 pb-4 sm:pb-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-          <div class="flex items-center gap-1.5 text-ink-500 font-medium text-[9px] sm:text-[11px]">
-            <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-            <span class="truncate">يُحدد لاحقًا</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Meetup Card: Meetup 3 (Past - Nov 4) -->
-      <a href="https://x.com/tafa3ol_com/status/2119051219658305539" target="_blank" rel="noopener noreferrer" title="مشاهدة تغطية اللقاء على منصة X" class="meetup-card solid-card rounded-2xl overflow-hidden flex flex-col justify-between bg-slate-50/70 opacity-95 group hover:border-brand-green/60 transition-all cursor-pointer block text-inherit no-underline" data-type="past">
-          <div>
-            <div class="relative h-32 sm:h-40 w-full overflow-hidden bg-gradient-to-br from-slate-900 to-brand-navy">
-              <img
-              src="pics/aiuser-image.jpeg"
-              alt="غلاف تجربة المستخدم الاصطناعي"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              style="opacity: 0.25; mix-blend-mode: luminosity;"
-              onerror="this.style.display='none';"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/50 to-transparent"></div>
-              
-              <div class="absolute top-3.5 inset-x-4 flex items-center justify-between gap-2 text-xs">
-                <span class="px-2 sm:px-2.5 py-1 rounded-lg bg-slate-800/80 text-slate-200 backdrop-blur-md font-medium text-[9px] sm:text-[11px] border border-slate-700/60 flex items-center gap-1">
-                  <span>📅</span>
-                  <span>الإثنين 04 / 11</span>
-                </span>
-                <span class="hidden sm:flex px-2.5 py-1 rounded-lg bg-slate-800/80 text-sky-400 backdrop-blur-md font-medium text-[11px] border border-slate-700/60 items-center gap-1">
-                  <span>برعاية سكاي أوفيس</span>
-                  <span class="text-sky-300">☁️</span>
-                </span>
-              </div>
-
-              <div class="absolute bottom-3 inset-x-4">
-                <span class="text-[10px] sm:text-[11px] font-semibold text-slate-400">لقاء تفاعل #3</span>
-                <h3 class="text-xs sm:text-base font-bold font-display text-white leading-snug group-hover:text-emerald-300 transition-colors line-clamp-2">
-                  تجربة المستخدم الاصطناعي
-                </h3>
-              </div>
-            </div>
-
-            <div class="p-4 sm:p-5">
-              <p class="text-ink-600 text-[10px] sm:text-sm leading-relaxed mb-2 line-clamp-3">
-                ماذا لو كان المستخدم هو الذكاء الاصطناعي؟ كيف سنقدم له تجربة مستخدم أفضل؟
-              </p>
-            </div>
-          </div>
-
-          <div class="px-4 sm:px-5 pb-4 sm:pb-5 pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
-            <div class="flex items-center gap-1.5 text-ink-600 font-medium text-[9px] sm:text-[11px]">
-              <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-green shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-              <span class="truncate">مكة • سكاي أوفيس</span>
-            </div>
-          
-            <div class="flex items-center gap-2">
-              <span class="text-brand-green font-semibold text-[11px] flex items-center gap-0.5">
-                <span>✓</span>
-              </span>
-            </div>
-          </div>
-      </a>
-      <!-- Meetup Card: Meetup 2 (Past - Oct 5) -->
-      
-      <a href="https://x.com/tafa3ol_com/status/2107874249327169679" target="_blank" rel="noopener noreferrer" title="مشاهدة تغطية اللقاء على منصة X" class="meetup-card solid-card rounded-2xl overflow-hidden flex flex-col justify-between bg-slate-50/70 opacity-95 group hover:border-brand-green/60 transition-all cursor-pointer block text-inherit no-underline" data-type="past">
-          <div>
-            <div class="relative h-32 sm:h-40 w-full overflow-hidden bg-gradient-to-br from-slate-900 to-brand-navy">
-              <img
-              src="pics/Persuasive design pic.jpg"
-              alt="غلاف التصميم الإقناعي"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              style="opacity: 0.25; mix-blend-mode: luminosity;"
-              onerror="this.style.display='none';"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/50 to-transparent"></div>
-            
-              <div class="absolute top-3.5 inset-x-4 flex items-center justify-between gap-2 text-xs">
-                <span class="px-2 sm:px-2.5 py-1 rounded-lg bg-slate-800/80 text-slate-200 backdrop-blur-md font-medium text-[9px] sm:text-[11px] border border-slate-700/60 flex items-center gap-1">
-                  <span>📅</span>
-                  <span>الإثنين 05 / 10</span>
-                </span>
-                <span class="hidden sm:flex px-2.5 py-1 rounded-lg bg-slate-800/80 text-sky-400 backdrop-blur-md font-medium text-[11px] border border-slate-700/60 items-center gap-1">
-                  <span>برعاية سكاي أوفيس</span>
-                  <span class="text-sky-300">☁️</span>
-                </span>
-              </div>
-
-              <div class="absolute bottom-3 inset-x-4">
-                <span class="text-[10px] sm:text-[11px] font-semibold text-slate-400">لقاء تفاعل #2</span>
-                <h3 class="text-xs sm:text-base font-bold font-display text-white leading-snug group-hover:text-emerald-300 transition-colors line-clamp-2">
-                  التصميم المقنع
-                </h3>
-              </div>
-            </div>
-
-            <div class="p-4 sm:p-5">
-              <p class="text-ink-600 text-[10px] sm:text-sm leading-relaxed mb-2 line-clamp-3">
-                نظرة في علم النفس السلوكي ومبادئ التأثير والإقناع الإدراكي في بناء التجربة
-              </p>
-            </div>
-          </div>
-
-          <div class="px-4 sm:px-5 pb-4 sm:pb-5 pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
-            <div class="flex items-center gap-1.5 text-ink-600 font-medium text-[9px] sm:text-[11px]">
-              <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-green shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-              <span class="truncate">مكة • سكاي أوفيس</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="text-brand-green font-semibold text-[11px] flex items-center gap-0.5">
-                <span>✓</span>
-              </span>
-            </div>
-          </div>
-          
-      </a>
-    
-
-      <!-- Meetup Card: Meetup 1 (Past - Sep 20) -->
-      <a href="https://x.com/tafa3ol_com/status/2102426083064975491?s=20" target="_blank" rel="noopener noreferrer" title="مشاهدة تغطية اللقاء على منصة X" class="meetup-card solid-card rounded-2xl overflow-hidden flex flex-col justify-between bg-slate-50/70 opacity-95 group hover:border-brand-green/60 transition-all cursor-pointer block text-inherit no-underline" data-type="past">
-        <div>
-          <div class="relative h-32 sm:h-40 w-full overflow-hidden bg-gradient-to-br from-slate-900 to-brand-navy">
-            <img 
-              src="pics/tafa3ol-1st.jpeg" 
-              alt="غلاف AI & IA"
-              class="w-full h-full object-cover opacity-25 mix-blend-luminosity transition-transform duration-500 group-hover:scale-105"
-              onerror="this.style.display='none';" 
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/50 to-transparent"></div>
-
-            <div class="absolute top-3.5 inset-x-4 flex items-center justify-between gap-2 text-xs">
-              <span class="px-2 sm:px-2.5 py-1 rounded-lg bg-slate-800/80 text-slate-200 backdrop-blur-md font-medium text-[9px] sm:text-[11px] border border-slate-700/60 flex items-center gap-1">
-                <span>📅</span>
-                <span>الأحد 20 / 9</span>
-              </span>
-              <span class="hidden sm:flex px-2.5 py-1 rounded-lg bg-slate-800/80 text-emerald-400 backdrop-blur-md font-medium text-[11px] border border-slate-700/60 items-center gap-1">
-                <span>برعاية زد</span>
-                <span class="text-amber-400">✨</span>
-              </span>
-            </div>
-
-            <div class="absolute bottom-3 inset-x-4">
-              <span class="text-[10px] sm:text-[11px] font-semibold text-slate-400">لقاء تفاعل #1</span>
-              <h3 class="text-xs sm:text-base font-bold font-display text-white leading-snug group-hover:text-emerald-300 transition-colors line-clamp-2">
-                AI &amp; IA 
-              </h3>
-            </div>
-          </div>
-
-          <div class="p-4 sm:p-5">
-            <p class="text-ink-600 text-[10px] sm:text-sm leading-relaxed mb-2 line-clamp-3">
-              استعراض تجارب نخبة من التقنيين لأدوات الذكاء الاصطناعي، واستعراض مفهوم معمارية المعلومات
-            </p>
-          </div>
-        </div>
-
-        <div class="px-4 sm:px-5 pb-4 sm:pb-5 pt-3 border-t border-slate-200/80 flex items-center justify-between text-xs">
-          <div class="flex items-center gap-1.5 text-ink-600 font-medium text-[9px] sm:text-[11px]">
-            <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-brand-green shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-            <span class="truncate">مكة • سكاي أوفيس</span>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <span class="text-brand-green font-semibold text-[11px] flex items-center gap-0.5">
-              <span>✓</span>
-            </span>
-          </div>
-        </div>
-      </a>
-
+      <!-- Reusable MeetupCard components inserted by js/main.js -->
     </div>
 
     <!-- Empty Filter Feedback -->
@@ -628,145 +255,9 @@
         </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 items-end pt-2 md:pt-6">
+      <div id="teamGrid" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5 lg:gap-3 items-end pt-2 md:pt-6">
         
-        <!-- Founder Card: Ali Tayeb (Lead) -->
-        <div class="reveal-element solid-card rounded-2xl p-4 sm:p-5 md:p-6 flex flex-col justify-between border-t-4 border-t-brand-green shadow-sm md:shadow-lg bg-white ring-1 ring-brand-green/20 md:-translate-y-4 h-full relative z-20 order-1 md:order-2 gap-4" style="transition-delay: 100ms;">
-          
-          <div class="flex flex-row md:flex-col items-start md:items-center gap-4 md:gap-0">
-            <div class="flex flex-col items-center shrink-0 w-24 sm:w-28 md:w-full text-center">
-              <div class="relative w-20 h-20 md:w-24 md:h-24 rounded-xl md:rounded-2xl overflow-hidden border-2 border-brand-green shadow-xs bg-brand-green-subtle flex items-center justify-center group shrink-0">
-                <img 
-                  src="pics/ali.png" 
-                  alt="علي طيب" 
-                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
-                  onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');" 
-                />
-                <div class="hidden w-full h-full flex flex-col items-center justify-center bg-brand-green-subtle text-brand-green font-bold font-display text-xs md:text-base">
-                  <span>ع.ط</span>
-                </div>
-              </div>
-              
-              <span class="md:hidden text-[10px] font-semibold text-purple-700 bg-purple-50 px-2 py-0.5 rounded border border-purple-200 mt-2 text-center w-full">
-                رئيس المبادرة
-              </span>
-            </div>
-
-            <div class="flex-1 min-w-0 md:w-full flex flex-col items-start md:items-center text-right md:text-center pt-0.5 md:pt-3">
-              <h3 class="text-sm md:text-base font-bold font-display text-brand-navy">علي طيب</h3>
-              
-              <span class="hidden md:inline-block text-[11px] font-semibold text-purple-700 bg-purple-50 px-2.5 py-0.5 rounded border border-purple-200 mt-1 mb-2">
-                رئيس المبادرة
-              </span>
-
-              <p class="text-ink-600 text-xs leading-relaxed mt-1.5 md:mt-0">
-                متخصص في تفاعل الإنسان مع الحاسب وتصميم تجارب المستخدم وسهولة الوصول
-              </p>
-            </div>
-          </div>
-
-          <div class="w-full pt-3 border-t border-slate-100 flex justify-center">
-            <a href="https://wa.me/966559597829" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center justify-center gap-2 transition-all active:scale-95 shadow-2xs">
-              <span>تواصل معي</span>
-              <svg class="w-4 h-4 fill-emerald-600" viewBox="0 0 24 24">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-              </svg>
-            </a>
-          </div>
-
-        </div>
-
-        <!-- Founder Card: Mohammed Jabali (Advisor) -->
-        <div class="reveal-element solid-card rounded-2xl p-4 sm:p-5 md:p-6 flex flex-col justify-between border-t-4 border-t-brand-green h-full order-3 md:order-3 gap-4" style="transition-delay: 300ms;">
-          
-          <div class="flex flex-row md:flex-col items-start md:items-center gap-4 md:gap-0">
-            <div class="flex flex-col items-center shrink-0 w-24 sm:w-28 md:w-full text-center">
-              <div class="relative w-20 h-20 md:w-24 md:h-24 rounded-xl md:rounded-2xl overflow-hidden border-2 border-brand-green-border shadow-xs bg-brand-green-subtle flex items-center justify-center group shrink-0">
-                <img 
-                  src="pics/mohammed.jpg" 
-                  alt="محمد جبلي" 
-                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
-                  onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');" 
-                />
-                <div class="hidden w-full h-full flex flex-col items-center justify-center bg-brand-green-subtle text-brand-green font-bold font-display text-xs md:text-base">
-                  <span>م.ج</span>
-                </div>
-              </div>
-              
-              <span class="md:hidden text-[10px] font-semibold text-brand-green bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 mt-2 text-center w-full">
-                مستشار المبادرة
-              </span>
-            </div>
-
-            <div class="flex-1 min-w-0 md:w-full flex flex-col items-start md:items-center text-right md:text-center pt-0.5 md:pt-3">
-              <h3 class="text-sm md:text-base font-bold font-display text-brand-navy">محمد جبلي</h3>
-              
-              <span class="hidden md:inline-block text-[11px] font-semibold text-brand-green bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200 mt-1 mb-2">
-                مستشار المبادرة
-              </span>
-
-              <p class="text-ink-600 text-xs leading-relaxed mt-1.5 md:mt-0">
-                طالب دكتوراه في علوم الحاسب ومحاضر بجامعة أم القرى، مهتم بتفاعل الإنسان والحاسب
-              </p>
-            </div>
-          </div>
-
-          <div class="w-full pt-3 border-t border-slate-100 flex justify-center">
-            <a href="https://wa.me/966505501575" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center justify-center gap-2 transition-all active:scale-95 shadow-2xs">
-              <span>تواصل معي</span>
-              <svg class="w-4 h-4 fill-emerald-600" viewBox="0 0 24 24">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-              </svg>
-            </a>
-          </div>   
-        </div>
-
-        <!-- Founder Card: Ahmed Alzahrani (Vice President) -->
-        <div class="reveal-element solid-card rounded-2xl p-4 sm:p-5 md:p-6 flex flex-col justify-between border-t-4 border-t-brand-green h-full order-2 md:order-1 gap-4" style="transition-delay: 200ms;">
-          
-          <div class="flex flex-row md:flex-col items-start md:items-center gap-4 md:gap-0">
-            <div class="flex flex-col items-center shrink-0 w-24 sm:w-28 md:w-full text-center">
-              <div class="relative w-20 h-20 md:w-24 md:h-24 rounded-xl md:rounded-2xl overflow-hidden border-2 border-slate-200 shadow-xs bg-slate-100 flex items-center justify-center group shrink-0">
-                <img 
-                  src="pics/ahmed.jpg" 
-                  alt="أحمد الزهراني" 
-                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
-                  onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.classList.remove('hidden');" 
-                />
-                <div class="hidden w-full h-full flex flex-col items-center justify-center bg-slate-100 text-brand-navy font-bold font-display text-xs md:text-base">
-                  <span>أ.ز</span>
-                </div>
-              </div>
-              
-              <span class="md:hidden text-[10px] font-semibold text-brand-green bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 mt-2 text-center w-full">
-                نائب الرئيس
-              </span>
-            </div>
-
-            <div class="flex-1 min-w-0 md:w-full flex flex-col items-start md:items-center text-right md:text-center pt-0.5 md:pt-3">
-              <h3 class="text-sm md:text-base font-bold font-display text-brand-navy">أحمد الزهراني</h3>
-              
-              <span class="hidden md:inline-block text-[11px] font-semibold text-brand-green bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200 mt-1 mb-2">
-                نائب الرئيس
-              </span>
-
-              <p class="text-ink-600 text-xs leading-relaxed mt-1.5 md:mt-0">
-                متخصص في تفاعل الإنسان مع الحاسب، مهتم بدراسة سلوكيات المستخدمين
-              </p>
-            </div>
-          </div>
-
-          <div class="w-full pt-3 border-t border-slate-100 flex justify-center">
-            <a href="https://wa.me/966500778984" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center justify-center gap-2 transition-all active:scale-95 shadow-2xs">
-              <span>تواصل معي</span>
-              <svg class="w-4 h-4 fill-emerald-600" viewBox="0 0 24 24">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-
+        <!-- Reusable MemberCard components inserted by js/main.js -->
       </div>
     </section>
 
@@ -776,39 +267,8 @@
         <h2 class="text-2xl font-bold font-display text-brand-navy">الأسئلة الشائعة</h2>
       </div>
 
-      <div class="reveal-element space-y-3" style="transition-delay: 100ms;">
-        <!-- FAQ Item 1 -->
-        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full p-4 text-right flex items-center justify-between text-xs sm:text-sm font-bold text-brand-navy hover:bg-slate-50 transition-colors">
-            <span>هل الانضمام وحضور اللقاءات مجاني؟</span>
-            <span class="faq-icon text-brand-green text-lg font-mono transition-transform duration-200">+</span>
-          </button>
-          <div class="faq-answer hidden px-4 pb-4 text-xs text-ink-600 leading-relaxed border-t border-slate-100 pt-3">
-            نعم، مبادرة تفاعل مجتمعية تطوعية بالكامل، وجميع اللقاءات الحضورية والمساحات الافتراضية متاحة مجانًا لكافة المهتمين والممارسين
-          </div>
-        </div>
-
-        <!-- FAQ Item 2 -->
-        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full p-4 text-right flex items-center justify-between text-xs sm:text-sm font-bold text-brand-navy hover:bg-slate-50 transition-colors">
-            <span>هل يجب أن أكون مصمم واجهات وتجربة مستخدم للانضمام؟</span>
-            <span class="faq-icon text-brand-green text-lg font-mono transition-transform duration-200">+</span>
-          </button>
-          <div class="faq-answer hidden px-4 pb-4 text-xs text-ink-600 leading-relaxed border-t border-slate-100 pt-3">
-            أبدًا! المجتمع يرحب بالمصممين، الباحثين، مطوري البرمجيات، مدراء المنتجات، والطلاب، وكل من يهمه تبسيط تجربة العميل وتحسين الخدمات الرقمية
-          </div>
-        </div>
-
-        <!-- FAQ Item 3 -->
-        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
-          <button onclick="toggleFaq(this)" class="w-full p-4 text-right flex items-center justify-between text-xs sm:text-sm font-bold text-brand-navy hover:bg-slate-50 transition-colors">
-            <span>أين تعقد اللقاءات الحضورية؟</span>
-            <span class="faq-icon text-brand-green text-lg font-mono transition-transform duration-200">+</span>
-          </button>
-          <div class="faq-answer hidden px-4 pb-4 text-xs text-ink-600 leading-relaxed border-t border-slate-100 pt-3">
-            تقام اللقاءات الحضورية في مساحات عمل ومراكز تقنية شريكة في العاصمة المقدسة (مكة المكرمة)، بالإضافة إلى جلسات ومساحات رقمية عبر منصات الاتصال
-          </div>
-        </div>
+      <div id="faqItems" class="reveal-element space-y-3" style="transition-delay: 100ms;">
+        <!-- Reusable FaqItem components inserted by js/main.js -->
       </div>
     </section>
 
@@ -853,211 +313,7 @@
     </div>
   </footer>
 
-  <script>
-    /* Google Forms dynamic link setup */
-    const GOOGLE_FORM_URL = "https://forms.gle/sQmWoPeUZXBgLm9v8";
-    document.querySelectorAll('.google-form-link').forEach(link => {
-      link.href = GOOGLE_FORM_URL;
-    });
-
-    /* Mobile navigation menu toggling */
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    function toggleMobileMenu() {
-      if (!mobileMenu) return;
-      const isHidden = mobileMenu.classList.toggle('hidden');
-      if (mobileMenuBtn) {
-        mobileMenuBtn.setAttribute('aria-expanded', !isHidden);
-      }
-    }
-    if (mobileMenuBtn) {
-      mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-    }
-
-    /* Dynamic header visibility morphing on scroll */
-    const navHeader = document.querySelector('header');
-    function handleMobileNavMorph() {
-      if (window.innerWidth < 768) {
-        if (window.scrollY > 50) {
-          navHeader.classList.remove('mobile-nav-hidden');
-          navHeader.classList.add('mobile-nav-visible');
-        } else {
-          navHeader.classList.remove('mobile-nav-visible');
-          navHeader.classList.add('mobile-nav-hidden');
-        }
-      } else {
-        navHeader.classList.remove('mobile-nav-hidden', 'mobile-nav-visible');
-      }
-    }
-    window.addEventListener('scroll', handleMobileNavMorph, { passive: true });
-    window.addEventListener('resize', handleMobileNavMorph);
-    handleMobileNavMorph();
-
-    /* Dynamic meetups count calculation based on DOM cards */
-    function updateMeetupCounts() {
-      const cards = document.querySelectorAll('.meetup-card');
-      let upcomingCount = 0;
-      let pastCount = 0;
-
-      cards.forEach(card => {
-        const type = card.getAttribute('data-type');
-        if (type === 'upcoming') {
-          upcomingCount++;
-        } else if (type === 'past') {
-          pastCount++;
-        }
-      });
-
-      const countAll = document.getElementById('count-all');
-      const countUpcoming = document.getElementById('count-upcoming');
-      const countPast = document.getElementById('count-past');
-
-      if (countAll) countAll.textContent = cards.length;
-      if (countUpcoming) countUpcoming.textContent = upcomingCount;
-      if (countPast) countPast.textContent = pastCount;
-    }
-
-    /* -------------------------------------------------------------
-       Micro-interactions: Sliding Filter Background 
-    ------------------------------------------------------------- */
-    function updateSliderPosition(btn) {
-      const slider = document.getElementById('filter-slider');
-      if (btn && slider) {
-        slider.style.width = btn.offsetWidth + 'px';
-        // In RTL layout, offsetLeft gets the distance from the left edge of the parent.
-        slider.style.left = btn.offsetLeft + 'px';
-      }
-    }
-
-    function initFilterSlider() {
-      const activeBtn = document.querySelector('.filter-btn.active') || document.getElementById('btn-all');
-      updateSliderPosition(activeBtn);
-    }
-
-    /* Meetups category filtering */
-    function filterMeetups(type, btnElement) {
-      const cards = document.querySelectorAll('.meetup-card');
-      const buttons = document.querySelectorAll('.filter-btn');
-      const emptyState = document.getElementById('emptyFilterState');
-      const grid = document.getElementById('meetupsGrid');
-
-      // 1. Update buttons text color
-      buttons.forEach(btn => {
-        btn.classList.remove('active', 'text-white');
-        btn.classList.add('text-ink-600');
-      });
-
-      const activeBtn = btnElement || document.getElementById(`btn-${type}`);
-      if (activeBtn) {
-        activeBtn.classList.add('active', 'text-white');
-        activeBtn.classList.remove('text-ink-600');
-        updateSliderPosition(activeBtn);
-      }
-
-      // 2. Animate out the current grid/empty state
-      grid.style.opacity = '0';
-      grid.style.transform = 'translateY(10px) scale(0.98)';
-      if (emptyState) {
-        emptyState.style.opacity = '0';
-        emptyState.style.transform = 'translateY(10px) scale(0.98)';
-      }
-
-      // 3. Wait for the transition to finish, then swap content and animate in
-      setTimeout(() => {
-        let visibleCount = 0;
-        cards.forEach(card => {
-          if (type === 'all' || card.getAttribute('data-type') === type) {
-            card.style.display = 'flex';
-            visibleCount++;
-          } else {
-            card.style.display = 'none';
-          }
-        });
-
-        if (emptyState) {
-          if (visibleCount === 0) {
-            emptyState.classList.remove('hidden');
-          } else {
-            emptyState.classList.add('hidden');
-          }
-        }
-
-        // Force browser to recalculate layout before animating back in
-        void grid.offsetWidth;
-
-        // Animate in
-        grid.style.opacity = '1';
-        grid.style.transform = 'translateY(0) scale(1)';
-        if (emptyState && visibleCount === 0) {
-          emptyState.style.opacity = '1';
-          emptyState.style.transform = 'translateY(0) scale(1)';
-        }
-      }, 250); // 250ms matches the CSS transition duration
-    }
-
-    /* FAQ accordion toggle */
-    function toggleFaq(button) {
-      const answer = button.nextElementSibling;
-      const icon = button.querySelector('.faq-icon');
-      const isExpanded = !answer.classList.contains('hidden');
-      
-      document.querySelectorAll('.faq-answer').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('.faq-icon').forEach(el => el.textContent = '+');
-
-      if (!isExpanded) {
-        answer.classList.remove('hidden');
-        icon.textContent = '−';
-      }
-    }
-
-    /* Initial execution to sync counts and state */
-    updateMeetupCounts();
-
-    /* -------------------------------------------------------------
-       Scroll Progress Bar Logic
-    ------------------------------------------------------------- */
-    window.addEventListener('scroll', () => {
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
-      const progressEl = document.getElementById('scroll-progress');
-      if (progressEl) {
-        progressEl.style.width = scrolled + '%';
-      }
-    }, { passive: true });
-
-    /* -------------------------------------------------------------
-       Scroll Reveal Intersection Observer
-    ------------------------------------------------------------- */
-    const revealElements = document.querySelectorAll('.reveal-element');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-        } else {
-          // تأثير الخروج السلس عند الخروج من الشاشة
-          entry.target.classList.remove('revealed');
-        }
-      });
-    }, {
-      threshold: 0.1, 
-      rootMargin: "0px 0px -40px 0px" 
-    });
-
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    /* Initialize UI Elements on load and resize */
-    window.addEventListener('load', () => {
-      initFilterSlider();
-    });
-    
-    // Recalculate slider on resize as button widths might change
-    window.addEventListener('resize', () => {
-      const activeBtn = document.querySelector('.filter-btn.active');
-      if (activeBtn) updateSliderPosition(activeBtn);
-    });
-
-  </script>
+  <script type="module" src="js/main.js"></script>
 
 </body>
 </html>

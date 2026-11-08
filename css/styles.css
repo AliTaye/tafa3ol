@@ -1,0 +1,104 @@
+    /* Base typography and body colors */
+    body {
+      font-family: 'Readex Pro', sans-serif;
+      background-color: #F8FAFC;
+      color: #1E293B;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle dot grid canvas background */
+    .app-canvas {
+      background-image: radial-gradient(#CBD5E1 0.75px, transparent 0.75px);
+      background-size: 24px 24px;
+      background-color: #F8FAFC;
+    }
+
+    /* Interactive card styling */
+    .solid-card {
+      background-color: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.02);
+      transition: border-color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+    }
+    .solid-card:hover {
+      border-color: #CBD5E1;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.06);
+    }
+
+    /* Active filter tab appearance */
+    .filter-btn.active {
+      color: #FFFFFF !important;
+    }
+
+    /* Custom scrollbar styles */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F8FAFC;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #085A36;
+    }
+
+    /* Mobile header animation states */
+    @media (max-width: 767.98px) {
+      header.mobile-nav-hidden {
+        opacity: 0 !important;
+        transform: translateY(-115%) scale(0.9) !important;
+        pointer-events: none !important;
+        filter: blur(10px) !important;
+        border-radius: 0 0 2rem 2rem;
+      }
+      header.mobile-nav-visible {
+        opacity: 1 !important;
+        transform: translateY(0) scale(1) !important;
+        pointer-events: auto !important;
+        filter: blur(0px) !important;
+        border-radius: 0 0 0 0;
+      }
+      header {
+        transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                    filter 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                    border-radius 0.85s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        transform-origin: top center;
+        will-change: transform, opacity, filter;
+      }
+    }
+
+    /* Smooth Grid Filtering Transition */
+    #meetupsGrid, #emptyFilterState {
+      transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+      will-change: opacity, transform;
+    }
+
+    /* Scroll Progress Bar */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 0%;
+      height: 3px;
+      background-color: #085A36;
+      z-index: 9999;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Scroll Reveal (Fade-up) */
+    .reveal-element {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-element.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
