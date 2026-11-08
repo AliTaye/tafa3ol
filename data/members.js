@@ -45,8 +45,8 @@ export const members = [
   {
     name: 'رتاج نتو',
     role: 'عضو الإدارة',
-    description: 'ستُضاف نبذة العضو هنا قريبًا.',
-    photo: null, // استبدلها بمسار الصورة بعد إضافتها إلى pics/
+    description: 'متخصصة في تفاعل الإنسان مع الحاسب، وبالتحديد أبحاث المستخدم',
+    photo: 'pics/retaj.jpeg',
     initials: 'ر.ت',
     whatsappUrl: 'https://wa.me/966567791427',
     variant: 'member',
