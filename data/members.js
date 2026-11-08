@@ -12,7 +12,7 @@ export const members = [
   {
     name: 'علي طيب',
     role: 'رئيس المبادرة',
-    description: 'متخصص في تفاعل الإنسان مع الحاسب وتصميم تجارب المستخدم وسهولة الوصول',
+    description: 'متخصص في تفاعل الإنسان مع الحاسب، أخصائي تجربة عميل في نبرة',
     photo: 'pics/ali.png',
     initials: 'ع.ط',
     whatsappUrl: 'https://wa.me/966559597829',
