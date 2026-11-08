@@ -43,23 +43,23 @@ export const members = [
     desktopOrder: 2,
   },
   {
-    name: 'رتاج',
-    role: 'عضو الفريق',
+    name: 'رتاج نتو',
+    role: 'عضو الإدارة',
     description: 'ستُضاف نبذة العضو هنا قريبًا.',
     photo: null, // استبدلها بمسار الصورة بعد إضافتها إلى pics/
     initials: 'ر.ت',
-    whatsappUrl: null, // أضف الرابط بصيغة https://wa.me/9665... عند توفره
+    whatsappUrl: 'https://wa.me/966567791427',
     variant: 'member',
     mobileOrder: 4,
     desktopOrder: 1,
   },
   {
-    name: 'رائف',
-    role: 'عضو الفريق',
+    name: 'رائف خالد',
+    role: 'عضو الإدارة',
     description: 'ستُضاف نبذة العضو هنا قريبًا.',
     photo: null, // استبدلها بمسار الصورة بعد إضافتها إلى pics/
     initials: 'ر.ف',
-    whatsappUrl: null, // أضف الرابط بصيغة https://wa.me/9665... عند توفره
+    whatsappUrl: 'https://wa.me/966557303473', 
     variant: 'member',
     mobileOrder: 5,
     desktopOrder: 5,
