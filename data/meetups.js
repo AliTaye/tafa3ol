@@ -9,15 +9,15 @@
 export const meetups = [
   {
     id: 4,
-    title: 'اللقاء القادم؟',
-    description: 'نعمل على ترتيب تفاصيل اللقاء القادم. ابقَ بالقرب وشاركنا مقترحاتك في مجتمع الواتساب!',
+    title: 'تجربة سوق: أبعاد التجربة',
+    description: 'جلسة حوارية مع م. محمد الشريف، مؤسس أبعاد التجربة، حول سوق التجربة',
     status: 'upcoming',
-    dateLabel: 'قريبًا',
-    location: 'يُحدد لاحقًا',
-    cover: null,
-    imageAlt: '',
-    coverageUrl: null,
-    sponsor: null,
+    dateLabel: 'الإثنين 23 / 11',
+    location: 'مكة • سكاي أوفيس',
+    cover: 'pics/ad-ex-dimensions',
+    imageAlt: 'إعلان تجربة سوق',
+    coverageUrl: 'https://x.com/tafa3ol_com/status/2123817124778959050',
+    sponsor: { label: 'برعاية سكاي أوفيس', icon: '☁️', style: 'sky' },
   },
   {
     id: 3,
