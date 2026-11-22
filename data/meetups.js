@@ -26,7 +26,7 @@ export const meetups = [
     status: 'upcoming',
     dateLabel: 'الإثنين 23 / 11',
     location: 'مكة • سكاي أوفيس',
-    cover: 'pics/ad-ex-dimensions',
+    cover: 'pics/ad-ex-dimensions.jpg',
     imageAlt: 'إعلان تجربة سوق',
     coverageUrl: 'https://x.com/tafa3ol_com/status/2123817124778959050',
     sponsor: { label: 'برعاية سكاي أوفيس', icon: '☁️', style: 'sky' },
