@@ -8,18 +8,6 @@
  */
 export const meetups = [
   {
-    id: 5,
-    title: 'اللقاء القادم؟',
-    description: 'نعمل على ترتيب تفاصيل اللقاء القادم. ابقَ بالقرب وشاركنا مقترحاتك في مجتمع الواتساب!',
-    status: 'upcoming',
-    dateLabel: 'قريبًا',
-    location: 'يُحدد لاحقًا',
-    cover: null,
-    imageAlt: '',
-    coverageUrl: null,
-    sponsor: null,
-  },
-  {
     id: 4,
     title: 'تجربة سوق: أبعاد التجربة',
     description: 'جلسة حوارية مع م. محمد الشريف، مؤسس أبعاد التجربة، حول سوق التجربة',
